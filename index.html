@@ -980,8 +980,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <div class="filters-actions" id="filters-actions"> <!-- Adicione o id aqui -->
-<button class="btn-add btn btn-primary" onclick="openModal('empenho', null)"><i class="fa-solid fa-circle-plus"></i> Novo Empenho</button>
-<button class="btn-add" onclick="openModal('faturamento', null)">📋 Novo Pré-Faturamento</button>
 <div style="flex-grow: 1;"></div>
 <label for="filterContrato">Contrato:</label>
 <select aria-label="Filtrar por Contrato" id="filterContrato" onchange="carregarDados()"><option value="">Todos</option><option value="9275811/2021">Dev (…811/2021)</option><option value="9389678/2023">Hosp (…678/2023)</option></select>
@@ -993,17 +991,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <select aria-label="Filtrar por Status do Faturamento" id="filterStatusFaturamento" onchange="carregarDados()"><option value="">Todos</option><option value="Pré-faturado">Pré-faturado</option><option value="NF Emitida">NF Emitida</option><option value="Atestada">Atestada</option><option value="Liquidada">Liquidada</option><option value="Paga">Paga</option><option value="Cancelada">Cancelada</option></select>
 </div>
 </div>
-<div class="import-export-controls">
-<button class="btn-import btn btn-primary" onclick="document.getElementById('importJsonInput').click();"><i class="fa-solid fa-file-import"></i> Importar JSON</button>
 
-<button class="btn-export btn btn-primary" onclick="exportarJson()"><i class="fa-solid fa-file-export"></i> Exportar JSON</button>
-<button class="btn-export" onclick="exportarCsv('empenhos')">📊 Exportar Empenhos (CSV)</button>
-<button class="btn-export" onclick="exportarCsv('faturamentos')">📈 Exportar Faturamento (CSV)</button>
-<button class="btn-print" onclick="exportarPdf()">📄 Salvar PDF</button>
-<button class="btn-export" onclick="exportarHtml()">💾 Salvar HTML</button>
-<button class="btn-export" onclick="gerarDashboardInterativo()">📊 Gerar Dashboard Interativo (HTML)</button>
-
-</div>
 <h2>📊 Dashboard</h2>
 <div class="dashboard">
 <div class="card dev">
