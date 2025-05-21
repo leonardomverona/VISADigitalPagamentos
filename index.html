@@ -962,7 +962,7 @@ document.addEventListener('DOMContentLoaded', () => {
           opacity: 0.6;
         }
       </style></head>
-<body class="dark-mode">
+<body class="">
 <div class="container">
 <div class="header-controls">
 <h1 class="">VISA Digital Pagamentos</h1>
@@ -1013,7 +1013,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <small>Saldo do Empenho: <span id="saldoEmpenhoDev" class="">R$&nbsp;1.200.246,00</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoDev" class="">R$&nbsp;1.200.246,00</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo Dev" id="graficoDev" width="259" height="80" style="display: block; box-sizing: border-box; height: 80px; width: 259px;"></canvas>
+<canvas aria-label="Gráfico de Saldo Dev" id="graficoDev" style="box-sizing: border-box; display: block; height: 80px; width: 259px;" width="259" height="80"></canvas>
 </div>
 </div>
 <div class="card hosp">
@@ -1025,18 +1025,18 @@ document.addEventListener('DOMContentLoaded', () => {
 <small>Saldo do Empenho: <span id="saldoEmpenhoHosp" class="">R$&nbsp;23.552,12</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoHosp" class="">R$&nbsp;23.552,12</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo Hospedagem" id="graficoHosp" width="259" height="80" style="display: block; box-sizing: border-box; height: 80px; width: 259px;"></canvas>
+<canvas aria-label="Gráfico de Saldo Hospedagem" id="graficoHosp" style="box-sizing: border-box; display: block; height: 80px; width: 259px;" width="259" height="80"></canvas>
 </div>
 </div>
 <div class="card rap">
 <h3 class="">Restos a Pagar (Desenvolvimento)</h3>
 <div class="value" id="saldoDisponivelRapDev">R$&nbsp;152.808,00</div>
 <small>Saldo Disponível</small>
-<small>Comprometido: <span id="saldoComprometidoRapDev" class="">R$&nbsp;2.066.792,00</span></small> <small>Liquidado: <span id="saldoLiquidadoRapDev" class="">R$&nbsp;1.915.490,00</span></small>
-<small>Saldo do Empenho: <span id="saldoEmpenhoRapDev" class="">R$&nbsp;304.110,00</span></small>
+<small>Comprometido: <span id="saldoComprometidoRapDev" class="">R$&nbsp;2.066.792,00</span></small> <small>Liquidado: <span id="saldoLiquidadoRapDev" class="">R$&nbsp;2.011.849,00</span></small>
+<small>Saldo do Empenho: <span id="saldoEmpenhoRapDev" class="">R$&nbsp;207.751,00</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoRapDev" class="">R$&nbsp;2.219.600,00</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo RAP Dev" id="graficoRapDev" width="259" height="80" style="display: block; box-sizing: border-box; height: 80px; width: 259px;"></canvas>
+<canvas aria-label="Gráfico de Saldo RAP Dev" id="graficoRapDev" style="box-sizing: border-box; display: block; height: 80px; width: 259px;" width="259" height="80"></canvas>
 </div>
 </div>
 <div class="card rap">
@@ -1047,7 +1047,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <small>Saldo do Empenho: <span id="saldoEmpenhoRapHosp" class="">R$&nbsp;65.208,03</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoRapHosp" class="">R$&nbsp;126.456,21</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo RAP Hospedagem" id="graficoRapHosp" width="259" height="80" style="display: block; box-sizing: border-box; height: 80px; width: 259px;"></canvas>
+<canvas aria-label="Gráfico de Saldo RAP Hospedagem" id="graficoRapHosp" style="box-sizing: border-box; display: block; height: 80px; width: 259px;" width="259" height="80"></canvas>
 </div>
 </div>
 </div>
@@ -1068,69 +1068,69 @@ document.addEventListener('DOMContentLoaded', () => {
 </tr>
 </thead>
 <tbody><tr>
-                    <td class="">
+                    <td>
                         Desenvolvimento
                         <small>(INF.4177/00)</small>
                     </td>
-                    <td class="">1185</td>
-                    <td class="">2025</td>
-                    <td class="">R$&nbsp;1.200.246,00</td>
-                    <td class="">R$&nbsp;0,00</td>
-                    <td class="">R$&nbsp;648.461,00</td><td class="">R$&nbsp;1.200.246,00</td>
+                    <td>1185</td>
+                    <td>2025</td>
+                    <td>R$&nbsp;1.200.246,00</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;648.461,00</td><td class="">R$&nbsp;1.200.246,00</td>
                     <td class="">R$&nbsp;551.785,00</td>
-                    <td class=""><span class="status-badge status-ativo">Ativo</span></td>
-                    <td class="">
+                    <td><span class="status-badge status-ativo">Ativo</span></td>
+                    <td>
                         <button class="btn-edit" onclick="openModal('empenho', '1747664783924')" title="Editar Empenho">✏️</button>
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747664783924', 'Reforço')" title="Adicionar Reforço">➕R</button>
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747664783924', 'Anulação Parcial')" title="Adicionar Anulação Parcial">➖A</button>
                         <button class="btn-delete" onclick="excluirEmpenho('1747664783924')" title="Excluir Empenho">🗑️</button>
                      </td> </tr><tr>
-                    <td class="">
+                    <td>
                         Hospedagem
                         <small>(INF–4628/00)</small>
                     </td>
-                    <td class="">128</td>
-                    <td class="">2025</td>
-                    <td class="">R$&nbsp;23.552,12</td>
-                    <td class="">R$&nbsp;0,00</td>
-                    <td class="">R$&nbsp;42.150,80</td><td class="">R$&nbsp;23.552,12</td>
+                    <td>128</td>
+                    <td>2025</td>
+                    <td>R$&nbsp;23.552,12</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;42.150,80</td><td class="">R$&nbsp;23.552,12</td>
                     <td class="saldo-negativo">-R$&nbsp;18.598,68</td>
-                    <td class=""><span class="status-badge status-ativo">Ativo</span></td>
-                    <td class="">
+                    <td><span class="status-badge status-ativo">Ativo</span></td>
+                    <td>
                         <button class="btn-edit" onclick="openModal('empenho', '1747664885484')" title="Editar Empenho">✏️</button>
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747664885484', 'Reforço')" title="Adicionar Reforço">➕R</button>
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747664885484', 'Anulação Parcial')" title="Adicionar Anulação Parcial">➖A</button>
                         <button class="btn-delete" onclick="excluirEmpenho('1747664885484')" title="Excluir Empenho">🗑️</button>
                      </td> </tr><tr>
-                    <td class="">
+                    <td>
                         Desenvolvimento
                         <small>(INF.4177/00)</small>
                     </td>
-                    <td class="">1129</td>
-                    <td class="">2024</td>
-                    <td class="">R$&nbsp;2.219.600,00</td>
-                    <td class="">R$&nbsp;1.915.490,00</td>
-                    <td class="">R$&nbsp;2.066.792,00</td><td class="">R$&nbsp;304.110,00</td>
+                    <td>1129</td>
+                    <td>2024</td>
+                    <td>R$&nbsp;2.219.600,00</td>
+                    <td>R$&nbsp;2.011.849,00</td>
+                    <td>R$&nbsp;2.066.792,00</td><td class="">R$&nbsp;207.751,00</td>
                     <td class="">R$&nbsp;152.808,00</td>
-                    <td class=""><span class="status-badge status-ativo">Ativo</span></td>
-                    <td class="">
+                    <td><span class="status-badge status-ativo">Ativo</span></td>
+                    <td>
                         <button class="btn-edit" onclick="openModal('empenho', '1747679412829')" title="Editar Empenho">✏️</button>
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747679412829', 'Reforço')" title="Adicionar Reforço">➕R</button>
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747679412829', 'Anulação Parcial')" title="Adicionar Anulação Parcial">➖A</button>
                         <button class="btn-delete" onclick="excluirEmpenho('1747679412829')" title="Excluir Empenho">🗑️</button>
                      </td> </tr><tr>
-                    <td class="">
+                    <td>
                         Hospedagem
                         <small>(INF–4628/00)</small>
                     </td>
-                    <td class="">87</td>
-                    <td class="">2024</td>
-                    <td class="">R$&nbsp;126.456,21</td>
-                    <td class="">R$&nbsp;61.248,18</td>
-                    <td class="">R$&nbsp;124.210,64</td><td class="">R$&nbsp;65.208,03</td>
+                    <td>87</td>
+                    <td>2024</td>
+                    <td>R$&nbsp;126.456,21</td>
+                    <td>R$&nbsp;61.248,18</td>
+                    <td>R$&nbsp;124.210,64</td><td class="">R$&nbsp;65.208,03</td>
                     <td class="">R$&nbsp;2.245,57</td>
-                    <td class=""><span class="status-badge status-ativo">Ativo</span></td>
-                    <td class="">
+                    <td><span class="status-badge status-ativo">Ativo</span></td>
+                    <td>
                         <button class="btn-edit" onclick="openModal('empenho', '1747834627090')" title="Editar Empenho">✏️</button>
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747834627090', 'Reforço')" title="Adicionar Reforço">➕R</button>
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747834627090', 'Anulação Parcial')" title="Adicionar Anulação Parcial">➖A</button>
@@ -1156,947 +1156,947 @@ document.addEventListener('DOMContentLoaded', () => {
 </tr>
 </thead>
 <tbody><tr>
-                    <td class="">35156</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">04/2025</td>
-                    <td class="">
+                    <td>35156</td>
+                    <td>Desenvolvimento</td>
+                    <td>04/2025</td>
+                    <td>
                         1185
                         <br><small>(2025)</small>
                     </td>
-                    <td class="">R$&nbsp;113.226,00</td>
-                    <td class="">
+                    <td>R$&nbsp;113.226,00</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         <br><small>Sprints: Sprint 65</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747667035156')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747667035156')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747667035156')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">31291</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">04/2025</td>
-                    <td class="">
+                    <td>31291</td>
+                    <td>Hospedagem</td>
+                    <td>04/2025</td>
+                    <td>
                         128
                         <br><small>(2025)</small>
                     </td>
-                    <td class="">R$&nbsp;10.537,70</td>
-                    <td class="">
+                    <td>R$&nbsp;10.537,70</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747669631291')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747669631291')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747669631291')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">26427</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">03/2025</td>
-                    <td class="">
+                    <td>26427</td>
+                    <td>Desenvolvimento</td>
+                    <td>03/2025</td>
+                    <td>
                         1185
                         <br><small>(2025)</small>
                     </td>
-                    <td class="">R$&nbsp;236.973,00</td>
-                    <td class="">
+                    <td>R$&nbsp;236.973,00</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         <br><small>Sprints: Sprint 63 e Sprint 64</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747666826427')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747666826427')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747666826427')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">21508</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">03/2025</td>
-                    <td class="">
+                    <td>21508</td>
+                    <td>Hospedagem</td>
+                    <td>03/2025</td>
+                    <td>
                         128
                         <br><small>(2025)</small>
                     </td>
-                    <td class="">R$&nbsp;10.537,70</td>
-                    <td class="">
+                    <td>R$&nbsp;10.537,70</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747669521508')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747669521508')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747669521508')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">61472</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">02/2025</td>
-                    <td class="">
+                    <td>61472</td>
+                    <td>Desenvolvimento</td>
+                    <td>02/2025</td>
+                    <td>
                         1185
                         <br><small>(2025)</small>
                     </td>
-                    <td class="">R$&nbsp;107.047,00</td>
-                    <td class="">
+                    <td>R$&nbsp;107.047,00</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         <br><small>Sprints: Sprint 62</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747665361472')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747665361472')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747665361472')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">69587</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">02/2025</td>
-                    <td class="">
+                    <td>69587</td>
+                    <td>Hospedagem</td>
+                    <td>02/2025</td>
+                    <td>
                         128
                         <br><small>(2025)</small>
                     </td>
-                    <td class="">R$&nbsp;10.537,70</td>
-                    <td class="">
+                    <td>R$&nbsp;10.537,70</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747667469587')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747667469587')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747667469587')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">39699</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">01/2025</td>
-                    <td class="">
+                    <td>39699</td>
+                    <td>Desenvolvimento</td>
+                    <td>01/2025</td>
+                    <td>
                         1185
                         <br><small>(2025)</small>
                     </td>
-                    <td class="">R$&nbsp;191.215,00</td>
-                    <td class="">
+                    <td>R$&nbsp;191.215,00</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         <br><small>Sprints: Sprint 60, Sprint 61</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747665239699')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747665239699')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747665239699')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">35124</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">01/2025</td>
-                    <td class="">
+                    <td>35124</td>
+                    <td>Hospedagem</td>
+                    <td>01/2025</td>
+                    <td>
                         128
                         <br><small>(2025)</small>
                     </td>
-                    <td class="">R$&nbsp;10.537,70</td>
-                    <td class="">
+                    <td>R$&nbsp;10.537,70</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747667435124')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747667435124')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747667435124')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">13995</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">12/2024</td>
-                    <td class="">
+                    <td>13995</td>
+                    <td>Desenvolvimento</td>
+                    <td>12/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;151.135,00</td>
-                    <td class="">
+                    <td>R$&nbsp;151.135,00</td>
+                    <td>
                         2450
                         <br><small>30/04/2025</small>
                     </td>
-                    <td class="">
+                    <td>
                         05/05/2025
                     </td>
-                    <td class="">06/05/2025</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>06/05/2025</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-liquidada">Liquidada</span>
                         <br><small>Sprints: Sprint 59</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834713995')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834713995')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834713995')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14108</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">12/2024</td>
-                    <td class="">
+                    <td>14108</td>
+                    <td>Desenvolvimento</td>
+                    <td>12/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;54.943,00</td>
-                    <td class="">
+                    <td>R$&nbsp;54.943,00</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         <br><small>Sprints: Sprint 60</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714108')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714108')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714108')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14368</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">12/2024</td>
-                    <td class="">
+                    <td>14368</td>
+                    <td>Hospedagem</td>
+                    <td>12/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.537,70</td>
-                    <td class="">
+                    <td>R$&nbsp;10.537,70</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714368')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714368')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714368')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">13882</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">11/2024</td>
-                    <td class="">
+                    <td>13882</td>
+                    <td>Hospedagem</td>
+                    <td>11/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.537,70</td>
-                    <td class="">
+                    <td>R$&nbsp;10.537,70</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834713882')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834713882')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834713882')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14459</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">11/2024</td>
-                    <td class="">
+                    <td>14459</td>
+                    <td>Desenvolvimento</td>
+                    <td>11/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;254.842,00</td>
-                    <td class="">
+                    <td>R$&nbsp;254.842,00</td>
+                    <td>
                         2456
                         <br><small>30/04/2025</small>
                     </td>
-                    <td class="">
+                    <td>
                         05/05/2025
                     </td>
-                    <td class="">06/05/2025</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>06/05/2025</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-liquidada">Liquidada</span>
                         <br><small>Sprints: Sprint 57 e Sprint 58</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714459')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714459')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714459')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14227</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">10/2024</td>
-                    <td class="">
+                    <td>14227</td>
+                    <td>Hospedagem</td>
+                    <td>10/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.537,70</td>
-                    <td class="">
+                    <td>R$&nbsp;10.537,70</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714227')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714227')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714227')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14444</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">10/2024</td>
-                    <td class="">
+                    <td>14444</td>
+                    <td>Desenvolvimento</td>
+                    <td>10/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;121.075,00</td>
-                    <td class="">
+                    <td>R$&nbsp;121.075,00</td>
+                    <td>
                         2455
                         <br><small>30/04/2025</small>
                     </td>
-                    <td class="">
+                    <td>
                         05/05/2025
                     </td>
-                    <td class="">06/05/2025</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>06/05/2025</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-liquidada">Liquidada</span>
                         <br><small>Sprints: Sprint 56</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714444')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714444')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714444')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">13834</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">09/2024</td>
-                    <td class="">
+                    <td>13834</td>
+                    <td>Desenvolvimento</td>
+                    <td>09/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;188.042,00</td>
-                    <td class="">
+                    <td>R$&nbsp;188.042,00</td>
+                    <td>
                         2454
                         <br><small>30/04/2025</small>
                     </td>
-                    <td class="">
+                    <td>
                         05/05/2025
                     </td>
-                    <td class="">06/05/2025</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>06/05/2025</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-liquidada">Liquidada</span>
                         <br><small>Sprints: Sprint 54 e Sprint 55</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834713834')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834713834')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834713834')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14585</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">09/2024</td>
-                    <td class="">
+                    <td>14585</td>
+                    <td>Hospedagem</td>
+                    <td>09/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.537,70</td>
-                    <td class="">
+                    <td>R$&nbsp;10.537,70</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714585')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714585')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714585')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">13750</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">08/2024</td>
-                    <td class="">
+                    <td>13750</td>
+                    <td>Desenvolvimento</td>
+                    <td>08/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;96.359,00</td>
-                    <td class="">
+                    <td>R$&nbsp;96.359,00</td>
+                    <td>
                         5635
                         <br><small>27/09/2024</small>
                     </td>
-                    <td class="">
-                        -
+                    <td>
+                        28/09/2024
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
-                        <span class="status-badge status-nf-emitida">NF Emitida</span>
-                        <br><small>Sprints: -</small>
-                        <br><small>Aprovadas: Não</small>
+                    <td>04/10/2024</td>
+                    <td>17/10/2024</td>
+                    <td>
+                        <span class="status-badge status-paga">Paga</span>
+                        <br><small>Sprints: Sprint 53</small>
+                        <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834713750')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834713750')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834713750')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">13875</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">08/2024</td>
-                    <td class="">
+                    <td>13875</td>
+                    <td>Desenvolvimento</td>
+                    <td>08/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;93.687,00</td>
-                    <td class="">
+                    <td>R$&nbsp;93.687,00</td>
+                    <td>
                         5634
                         <br><small>27/09/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         01/10/2024
                     </td>
-                    <td class="">04/10/2024</td>
-                    <td class="">17/10/2024</td>
-                    <td class="">
+                    <td>04/10/2024</td>
+                    <td>17/10/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         <br><small>Sprints: Sprint 52</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834713875')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834713875')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834713875')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14092</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">08/2024</td>
-                    <td class="">
+                    <td>14092</td>
+                    <td>Hospedagem</td>
+                    <td>08/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.537,70</td>
-                    <td class="">
+                    <td>R$&nbsp;10.537,70</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714092')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714092')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714092')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">13919</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">07/2024</td>
-                    <td class="">
+                    <td>13919</td>
+                    <td>Hospedagem</td>
+                    <td>07/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;8.166,42</td>
-                    <td class="">
+                    <td>R$&nbsp;8.166,42</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834713919')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834713919')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834713919')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14105</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">07/2024</td>
-                    <td class="">
+                    <td>14105</td>
+                    <td>Desenvolvimento</td>
+                    <td>07/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;210.086,00</td>
-                    <td class="">
+                    <td>R$&nbsp;210.086,00</td>
+                    <td>
                         5633
                         <br><small>27/09/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         01/10/2024
                     </td>
-                    <td class="">04/10/2024</td>
-                    <td class="">17/10/2024</td>
-                    <td class="">
+                    <td>04/10/2024</td>
+                    <td>17/10/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         <br><small>Sprints: Sprint 50 e Sprint 51</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714105')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714105')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714105')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14451</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">07/2024</td>
-                    <td class="">
+                    <td>14451</td>
+                    <td>Hospedagem</td>
+                    <td>07/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;2.107,54</td>
-                    <td class="">
+                    <td>R$&nbsp;2.107,54</td>
+                    <td>
                         -
                         <br><small>-</small>
                     </td>
-                    <td class="">
+                    <td>
                         -
                     </td>
-                    <td class="">-</td>
-                    <td class="">-</td>
-                    <td class="">
+                    <td>-</td>
+                    <td>-</td>
+                    <td>
                         <span class="status-badge status-pré-faturado">Pré-faturado</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714451')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714451')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714451')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14324</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">06/2024</td>
-                    <td class="">
+                    <td>14324</td>
+                    <td>Hospedagem</td>
+                    <td>06/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.208,03</td>
-                    <td class="">
+                    <td>R$&nbsp;10.208,03</td>
+                    <td>
                         4356
                         <br><small>19/07/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         19/07/2024
                     </td>
-                    <td class="">19/07/2024</td>
-                    <td class="">30/07/2024</td>
-                    <td class="">
+                    <td>19/07/2024</td>
+                    <td>30/07/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714324')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714324')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714324')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14620</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">06/2024</td>
-                    <td class="">
+                    <td>14620</td>
+                    <td>Desenvolvimento</td>
+                    <td>06/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;102.371,00</td>
-                    <td class="">
+                    <td>R$&nbsp;102.371,00</td>
+                    <td>
                         4260
                         <br><small>15/07/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         16/07/2024
                     </td>
-                    <td class="">17/07/2024</td>
-                    <td class="">25/07/2024</td>
-                    <td class="">
+                    <td>17/07/2024</td>
+                    <td>25/07/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         <br><small>Sprints: Sprint 49</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714620')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714620')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714620')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14143</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">05/2024</td>
-                    <td class="">
+                    <td>14143</td>
+                    <td>Desenvolvimento</td>
+                    <td>05/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;221.442,00</td>
-                    <td class="">
+                    <td>R$&nbsp;221.442,00</td>
+                    <td>
                         4259
                         <br><small>15/07/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         16/07/2024
                     </td>
-                    <td class="">17/07/2024</td>
-                    <td class="">25/07/2024</td>
-                    <td class="">
+                    <td>17/07/2024</td>
+                    <td>25/07/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         <br><small>Sprints: Sprint 47 e Sprint 48</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714143')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714143')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714143')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14174</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">05/2024</td>
-                    <td class="">
+                    <td>14174</td>
+                    <td>Hospedagem</td>
+                    <td>05/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.208,03</td>
-                    <td class="">
+                    <td>R$&nbsp;10.208,03</td>
+                    <td>
                         3743
                         <br><small>28/06/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         09/07/2024
                     </td>
-                    <td class="">16/07/2024</td>
-                    <td class="">23/07/2024</td>
-                    <td class="">
+                    <td>16/07/2024</td>
+                    <td>23/07/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714174')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714174')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714174')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14195</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">04/2024</td>
-                    <td class="">
+                    <td>14195</td>
+                    <td>Hospedagem</td>
+                    <td>04/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.208,03</td>
-                    <td class="">
+                    <td>R$&nbsp;10.208,03</td>
+                    <td>
                         2610
                         <br><small>10/05/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         10/05/2024
                     </td>
-                    <td class="">15/05/2024</td>
-                    <td class="">28/05/2024</td>
-                    <td class="">
+                    <td>15/05/2024</td>
+                    <td>28/05/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714195')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714195')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714195')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14682</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">04/2024</td>
-                    <td class="">
+                    <td>14682</td>
+                    <td>Desenvolvimento</td>
+                    <td>04/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;215.430,00</td>
-                    <td class="">
+                    <td>R$&nbsp;215.430,00</td>
+                    <td>
                         2607
                         <br><small>10/05/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         13/05/2024
                     </td>
-                    <td class="">22/05/2024</td>
-                    <td class="">06/06/2024</td>
-                    <td class="">
+                    <td>22/05/2024</td>
+                    <td>06/06/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         <br><small>Sprints: Sprint 45 e Sprint 46</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714682')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714682')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714682')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14053</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">03/2024</td>
-                    <td class="">
+                    <td>14053</td>
+                    <td>Hospedagem</td>
+                    <td>03/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.208,03</td>
-                    <td class="">
+                    <td>R$&nbsp;10.208,03</td>
+                    <td>
                         2109
                         <br><small>10/04/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         11/04/2024
                     </td>
-                    <td class="">16/04/2024</td>
-                    <td class="">28/05/2024</td>
-                    <td class="">
+                    <td>16/04/2024</td>
+                    <td>28/05/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714053')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714053')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714053')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14233</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">03/2024</td>
-                    <td class="">
+                    <td>14233</td>
+                    <td>Desenvolvimento</td>
+                    <td>03/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;103.707,00</td>
-                    <td class="">
+                    <td>R$&nbsp;103.707,00</td>
+                    <td>
                         2296
                         <br><small>12/04/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         12/04/2024
                     </td>
-                    <td class="">17/04/2024</td>
-                    <td class="">06/05/2024</td>
-                    <td class="">
+                    <td>17/04/2024</td>
+                    <td>06/05/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         <br><small>Sprints: Sprint 44</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714233')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714233')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714233')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">13989</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">02/2024</td>
-                    <td class="">
+                    <td>13989</td>
+                    <td>Hospedagem</td>
+                    <td>02/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.208,03</td>
-                    <td class="">
+                    <td>R$&nbsp;10.208,03</td>
+                    <td>
                         1820
                         <br><small>25/03/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         26/03/2024
                     </td>
-                    <td class="">01/04/2024</td>
-                    <td class="">26/04/2024</td>
-                    <td class="">
+                    <td>01/04/2024</td>
+                    <td>26/04/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834713989')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834713989')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834713989')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14184</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">02/2024</td>
-                    <td class="">
+                    <td>14184</td>
+                    <td>Desenvolvimento</td>
+                    <td>02/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;165.998,00</td>
-                    <td class="">
+                    <td>R$&nbsp;165.998,00</td>
+                    <td>
                         1818
                         <br><small>25/03/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         27/03/2024
                     </td>
-                    <td class="">17/04/2024</td>
-                    <td class="">06/06/2024</td>
-                    <td class="">
+                    <td>17/04/2024</td>
+                    <td>06/06/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         <br><small>Sprints: Sprint 42 e Sprint 43</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714184')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714184')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714184')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">02229</td>
-                    <td class="">Desenvolvimento</td>
-                    <td class="">01/2024</td>
-                    <td class="">
+                    <td>02229</td>
+                    <td>Desenvolvimento</td>
+                    <td>01/2024</td>
+                    <td>
                         1129
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;87.675,00</td>
-                    <td class="">
+                    <td>R$&nbsp;87.675,00</td>
+                    <td>
                         1817
                         <br><small>25/03/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         26/03/2024
                     </td>
-                    <td class="">17/04/2024</td>
-                    <td class="">06/05/2024</td>
-                    <td class="">
+                    <td>17/04/2024</td>
+                    <td>06/05/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         <br><small>Sprints: Sprint 40, Sprint 41</small>
                         <br><small>Aprovadas: Sim</small>
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747680002229')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747680002229')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747680002229')" title="Cancelar Faturamento">❌</button>
                      </td> </tr><tr>
-                    <td class="">14326</td>
-                    <td class="">Hospedagem</td>
-                    <td class="">01/2024</td>
-                    <td class="">
+                    <td>14326</td>
+                    <td>Hospedagem</td>
+                    <td>01/2024</td>
+                    <td>
                         87
                         <br><small>(2024)</small>
                     </td>
-                    <td class="">R$&nbsp;10.208,03</td>
-                    <td class="">
+                    <td>R$&nbsp;10.208,03</td>
+                    <td>
                         1819
                         <br><small>25/03/2024</small>
                     </td>
-                    <td class="">
+                    <td>
                         26/03/2024
                     </td>
-                    <td class="">01/04/2024</td>
-                    <td class="">26/04/2024</td>
-                    <td class="">
+                    <td>01/04/2024</td>
+                    <td>26/04/2024</td>
+                    <td>
                         <span class="status-badge status-paga">Paga</span>
                         
                         
                     </td>
-                    <td class="">
+                    <td>
                         <button class="btn-edit" onclick="openModal('faturamento', '1747834714326')" title="Gerenciar Faturamento">✏️</button>
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714326')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714326')" title="Cancelar Faturamento">❌</button>
