@@ -955,6 +955,109 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+
+<style>
+  /* Tipografia */
+  body, button, input, select, textarea { font-family: 'Inter', sans-serif; }
+
+  /* Cores e contraste */
+  body { background-color: #f9fafb; color: #1f2937; margin: 0; padding: 0; }
+  header, nav, footer { background-color: #ffffff; }
+
+  /* Container de tabela para responsividade */
+  .table-container { width: 100%; overflow-x: auto; margin-bottom: 1.5rem; }
+
+  /* Tabela */
+  table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  table thead { background-color: #2563eb; color: #ffffff; position: sticky; top: 0; }
+  table th, table td { padding: 0.75rem 1rem; border-bottom: 1px solid #e5e7eb; text-align: left; }
+  table tbody tr:hover { background-color: #f3f4f6; }
+
+  /* Botões */
+  button { background-color: #2563eb; color: #ffffff; padding: 0.5rem 1rem; border: none; border-radius: 0.375rem; font-size: 0.875rem; cursor: pointer; transition: background-color 0.2s ease-in-out; }
+  button:hover { background-color: #1d4ed8; }
+
+  /* Responsividade geral */
+  @media (max-width: 640px) {
+    body { padding: 0.5rem; }
+  }
+</style>
+
+
+<!-- estilo macOS elementary 9 custom -->
+<style>
+  :root {
+      --surface-light: #f5f5f7;
+      --surface-dark: #1e1e1e;
+      --card-light: #ffffff;
+      --card-dark: #2c2c2e;
+      --accent-light: #1e90ff;
+      --accent-dark: #0a84ff;
+  }
+
+  body {
+      background-color: var(--surface-light);
+      transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  body.dark-mode {
+      background-color: var(--surface-dark);
+      color: #f5f5f7;
+  }
+
+  .card {
+      background: var(--card-light);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: move;
+      user-select: none;
+  }
+  body.dark-mode .card {
+      background: var(--card-dark);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+  .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  .card.dragging {
+      opacity: 0.5;
+  }
+  .card.over {
+      border: 2px dashed var(--accent-light);
+  }
+  body.dark-mode .card.over {
+      border: 2px dashed var(--accent-dark);
+  }
+
+  /* Toggle Button */
+  #themeToggle {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--accent-light);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 0.9rem;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+      z-index: 999;
+  }
+  body.dark-mode #themeToggle {
+      background: var(--accent-dark);
+  }
+  @media (prefers-color-scheme: dark) {
+      body:not(.manual-theme) {
+          background-color: var(--surface-dark);
+          color: #f5f5f7;
+      }
+  }
+</style>
+
 <style>
         .editable[contenteditable="true"]:empty::before {
           content: attr(placeholder);
@@ -962,7 +1065,7 @@ document.addEventListener('DOMContentLoaded', () => {
           opacity: 0.6;
         }
       </style></head>
-<body class="">
+<body class="manual-theme">
 <div class="container">
 <div class="header-controls">
 <h1 class="">VISA Digital Pagamentos</h1>
@@ -1007,52 +1110,52 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="card dev">
 <h3 class="">Desenvolvimento (<span id="anoExibidoDev" class="">2025</span>)</h3>
 <div class="value" id="saldoDisponivelDev">R$&nbsp;551.785,00</div>
-<small>Saldo Disponível</small>
+<small>Saldo Disponível <span style="font-size: x-small;">(Empenhado - Comprometido)</span></small>
 <small>Comprometido: <span id="saldoComprometidoDev" class="">R$&nbsp;648.461,00</span></small>
 <small>Liquidado: <span id="saldoLiquidadoDev" class="">R$&nbsp;0,00</span></small>
 <small>Saldo do Empenho: <span id="saldoEmpenhoDev" class="">R$&nbsp;1.200.246,00</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoDev" class="">R$&nbsp;1.200.246,00</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo Dev" id="graficoDev" style="box-sizing: border-box; display: block; height: 80px; width: 259px;" width="259" height="80"></canvas>
+<canvas aria-label="Gráfico de Saldo Dev" id="graficoDev" width="277" height="80" style="display: block; box-sizing: border-box; height: 80px; width: 277px;"></canvas>
 </div>
 </div>
 <div class="card hosp">
 <h3 class="">Hospedagem (<span id="anoExibidoHosp" class="">2025</span>)</h3>
 <div class="value saldo-negativo" id="saldoDisponivelHosp">-R$&nbsp;18.598,68</div>
-<small>Saldo Disponível</small>
+<small>Saldo Disponível&nbsp;<span style="font-size: x-small;">(Empenhado - Comprometido)</span></small>
 <small>Comprometido: <span id="saldoComprometidoHosp" class="">R$&nbsp;42.150,80</span></small>
 <small>Liquidado: <span id="saldoLiquidadoHosp" class="">R$&nbsp;0,00</span></small>
 <small>Saldo do Empenho: <span id="saldoEmpenhoHosp" class="">R$&nbsp;23.552,12</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoHosp" class="">R$&nbsp;23.552,12</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo Hospedagem" id="graficoHosp" style="box-sizing: border-box; display: block; height: 80px; width: 259px;" width="259" height="80"></canvas>
+<canvas aria-label="Gráfico de Saldo Hospedagem" id="graficoHosp" width="277" height="80" style="display: block; box-sizing: border-box; height: 80px; width: 277px;"></canvas>
 </div>
 </div>
 <div class="card rap">
 <h3 class="">Restos a Pagar (Desenvolvimento)</h3>
 <div class="value" id="saldoDisponivelRapDev">R$&nbsp;152.808,00</div>
-<small>Saldo Disponível</small>
+<small>Saldo Disponível&nbsp;<span style="font-size: x-small;">(Empenhado - Comprometido)</span></small>
 <small>Comprometido: <span id="saldoComprometidoRapDev" class="">R$&nbsp;2.066.792,00</span></small> <small>Liquidado: <span id="saldoLiquidadoRapDev" class="">R$&nbsp;2.011.849,00</span></small>
 <small>Saldo do Empenho: <span id="saldoEmpenhoRapDev" class="">R$&nbsp;207.751,00</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoRapDev" class="">R$&nbsp;2.219.600,00</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo RAP Dev" id="graficoRapDev" style="box-sizing: border-box; display: block; height: 80px; width: 259px;" width="259" height="80"></canvas>
+<canvas aria-label="Gráfico de Saldo RAP Dev" id="graficoRapDev" width="277" height="80" style="display: block; box-sizing: border-box; height: 80px; width: 277px;"></canvas>
 </div>
 </div>
 <div class="card rap">
 <h3 class="">Restos a Pagar (Hospedagem)</h3>
 <div class="value" id="saldoDisponivelRapHosp">R$&nbsp;2.245,57</div>
-<small>Saldo Disponível</small>
+<small>Saldo Disponível&nbsp;<span style="font-size: x-small;">(Empenhado - Comprometido)</span></small>
 <small>Comprometido: <span id="saldoComprometidoRapHosp" class="">R$&nbsp;124.210,64</span></small> <small>Liquidado: <span id="saldoLiquidadoRapHosp" class="">R$&nbsp;61.248,18</span></small>
 <small>Saldo do Empenho: <span id="saldoEmpenhoRapHosp" class="">R$&nbsp;65.208,03</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoRapHosp" class="">R$&nbsp;126.456,21</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo RAP Hospedagem" id="graficoRapHosp" style="box-sizing: border-box; display: block; height: 80px; width: 259px;" width="259" height="80"></canvas>
+<canvas aria-label="Gráfico de Saldo RAP Hospedagem" id="graficoRapHosp" width="277" height="80" style="display: block; box-sizing: border-box; height: 80px; width: 277px;"></canvas>
 </div>
 </div>
 </div>
 <h2 class="">📑 Empenhos</h2>
-<div style="overflow-x: auto;" class=""> <table class="modern-table" id="tabelaEmpenhos">
+<div style="overflow-x: auto; opacity: 1;" class=""> <div class="table-container" style="opacity: 1;"><table class="modern-table" id="tabelaEmpenhos">
 <thead>
 <tr>
 <th class="">Contrato</th>
@@ -1062,16 +1165,13 @@ document.addEventListener('DOMContentLoaded', () => {
 <th class="">Valor Liquidado</th>
 <th class="">Valor Comprometido</th>
 <th class="">Saldo do Empenho</th>
-<th class="">Saldo Disponível</th>
+<th class=""><br>Saldo Disponível<br><span style="font-size: x-small;">(Empenhado - Comprometido)</span></th>
 <th class="">Status</th>
 <th class="">Ações</th>
 </tr>
 </thead>
 <tbody><tr>
-                    <td>
-                        Desenvolvimento
-                        <small>(INF.4177/00)</small>
-                    </td>
+                    <td><small><span style="font-size: 12.6px;">Desenvolvimento 9275811/2021</span></small></td>
                     <td>1185</td>
                     <td>2025</td>
                     <td>R$&nbsp;1.200.246,00</td>
@@ -1087,7 +1187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      </td> </tr><tr>
                     <td>
                         Hospedagem
-                        <small>(INF–4628/00)</small>
+                        <small>(9389678/2023)</small>
                     </td>
                     <td>128</td>
                     <td>2025</td>
@@ -1104,7 +1204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      </td> </tr><tr>
                     <td>
                         Desenvolvimento
-                        <small>(INF.4177/00)</small>
+                        <small>(9275811/2021)</small>
                     </td>
                     <td>1129</td>
                     <td>2024</td>
@@ -1121,7 +1221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                      </td> </tr><tr>
                     <td>
                         Hospedagem
-                        <small>(INF–4628/00)</small>
+                        <small>(9389678/2023)</small>
                     </td>
                     <td>87</td>
                     <td>2024</td>
@@ -1136,10 +1236,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747834627090', 'Anulação Parcial')" title="Adicionar Anulação Parcial">➖A</button>
                         <button class="btn-delete" onclick="excluirEmpenho('1747834627090')" title="Excluir Empenho">🗑️</button>
                      </td> </tr></tbody>
-</table>
+</table></div>
 </div>
 <h2 class="">📈 Registro de Faturamento</h2>
-<div style="overflow-x: auto;" class=""> <table class="modern-table" id="tabelaFaturamento">
+<div style="overflow-x: auto;" class=""> <div class="table-container"><table class="modern-table" id="tabelaFaturamento">
 <thead>
 <tr>
 <th class="">ID</th>
@@ -2101,7 +2201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714326')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714326')" title="Cancelar Faturamento">❌</button>
                      </td> </tr></tbody>
-</table>
+</table></div>
 </div>
 <div aria-labelledby="empenhoModalTitle" aria-modal="true" class="modal" id="empenhoModal" role="dialog">
 <div class="modal-content">
@@ -2111,8 +2211,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="form-group">
 <label for="contratoEmpenho">Contrato:</label>
 <select aria-required="true" id="contratoEmpenho" required="">
-<option value="9275811/2021">Desenvolvimento (INF.4177/00)</option>
-<option value="9389678/2023">Hospedagem (INF–4628/00)</option>
+<option value="9275811/2021">Desenvolvimento (9275811/2021)</option>
+<option value="9389678/2023">Hospedagem (9389678/2023)</option>
 </select>
 <span class="validation-message">Selecione um contrato.</span>
 </div>
@@ -2162,8 +2262,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <label for="contratoFaturamento">Contrato:</label>
 <select aria-required="true" id="contratoFaturamento" onchange="filtrarEmpenhosDisponiveis(); toggleSprintFields();" required="">
 <option value="">Selecione...</option>
-<option value="9275811/2021">Desenvolvimento (INF.4177/00)</option>
-<option value="9389678/2023">Hospedagem (INF–4628/00)</option>
+<option value="9275811/2021">Desenvolvimento (9275811/2021)</option>
+<option value="9389678/2023">Hospedagem (9389678/2023)</option>
 </select>
 <span class="validation-message">Selecione um contrato.</span>
 </div>
@@ -2647,7 +2747,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tr.innerHTML = `
                     <td>
                         ${getNomeContrato(e.contrato)}
-                        <small>(${e.contrato === CONTRATO_DEV ? 'INF.4177/00' : 'INF–4628/00'})</small>
+                        <small>(${e.contrato === CONTRATO_DEV ? '9275811/2021' : '9389678/2023'})</small>
                     </td>
                     <td>${e.numeroEmpenho || 'N/A'}</td>
                     <td>${e.anoEmpenho || 'N/A'}</td>
@@ -4735,5 +4835,74 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+<!-- Toggle theme button -->
+
+<script>
+(function() {
+
+  // Theme toggle logic
+  const body = document.body;
+  const toggleBtn = document.getElementById('themeToggle');
+  // Apply saved theme
+  const saved = localStorage.getItem('theme');
+  if(saved === 'dark') body.classList.add('dark-mode');
+  // Mark manual override
+  if(saved) body.classList.add('manual-theme');
+
+  toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+      body.classList.add('manual-theme');
+  });
+
+  // Drag-and-drop cards
+  let dragSrc = null;
+  function initDraggableCards() {
+      document.querySelectorAll('.card').forEach(card => {
+          card.addEventListener('dragstart', handleDragStart);
+          card.addEventListener('dragenter', handleDragEnter);
+          card.addEventListener('dragover', handleDragOver);
+          card.addEventListener('dragleave', handleDragLeave);
+          card.addEventListener('drop', handleDrop);
+          card.addEventListener('dragend', handleDragEnd);
+      });
+  }
+
+  function handleDragStart(e) {
+      dragSrc = this;
+      e.dataTransfer.effectAllowed = 'move';
+      // For Firefox compatibility
+      e.dataTransfer.setData('text/plain', '');
+      this.classList.add('dragging');
+  }
+  function handleDragOver(e) {
+      e.preventDefault(); // Necessary to allow drop
+      return false;
+  }
+  function handleDragEnter(e) {
+      if(this !== dragSrc) this.classList.add('over');
+  }
+  function handleDragLeave(e) {
+      this.classList.remove('over');
+  }
+  function handleDrop(e) {
+      e.stopPropagation();
+      if(dragSrc !== this) {
+          const parent = this.parentNode;
+          parent.insertBefore(dragSrc, this);
+      }
+      this.classList.remove('over');
+      return false;
+  }
+  function handleDragEnd(e) {
+      this.classList.remove('dragging');
+      document.querySelectorAll('.card.over').forEach(card => card.classList.remove('over'));
+  }
+
+  document.addEventListener('DOMContentLoaded', initDraggableCards);
+})();
+</script>
+
+
 
 </body></html>
