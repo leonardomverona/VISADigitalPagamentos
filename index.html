@@ -1111,6 +1111,9 @@ document.addEventListener('DOMContentLoaded', () => {
 <button class="btn-print" onclick="exportarPdf()">📄 Salvar PDF</button>
 <button class="btn-export" onclick="exportarHtml()">💾 Salvar HTML</button>
 <button class="btn-export" onclick="gerarDashboardInterativo()">📊 Gerar Dashboard Interativo (HTML)</button>
+<input id="githubToken" type="password" placeholder="GitHub Token" style="max-width:150px;" />
+<button class="btn-export" onclick="carregarDadosGitHub()">🔄 Carregar do GitHub</button>
+<button class="btn-export" onclick="salvarDadosGitHub()">⬆️ Salvar no GitHub</button>
 
 </div>
 <h2 class="">📊 Dashboard</h2>
@@ -2232,6 +2235,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let empenhos = []; // Armazena objetos de empenho
         let faturamentos = []; // Armazena objetos de faturamento
 
+        // Configurações do repositório GitHub (ajuste para o seu repositório)
+        const GITHUB_OWNER = 'SEU_USUARIO';
+        const GITHUB_REPO = 'SEU_REPOSITORIO';
+        const GITHUB_FILE = 'data.json';
+
         // Objeto para armazenar instâncias dos gráficos nos cards
         let graficoCardInstances = {};
 
@@ -2333,6 +2341,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const empenhosParaSalvar = empenhos.filter(e => e.tipoEmpenho === 'Inicial');
                 localStorage.setItem('empenhos_visa', JSON.stringify(empenhosParaSalvar));
                 localStorage.setItem('faturamentos_visa', JSON.stringify(faturamentos));
+
+                const token = localStorage.getItem('github_token');
+                if (token) salvarDadosGitHub();
+
                 // Não exibe alerta de sucesso para evitar poluir a tela em cada salvamento automático
             } catch (e) {
                 console.error("Erro ao salvar dados no LocalStorage:", e);
@@ -2404,6 +2416,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 empenhos = []; // Limpa os dados se ocorrer um erro grave
                 faturamentos = [];
                 exibirAlerta(`Erro ao carregar dados salvos do ${loadedFrom}. Os dados foram resetados.`, "error");
+            }
+        };
+
+        /** Carrega dados do GitHub se existir arquivo data.json */
+        const carregarDadosGitHub = async () => {
+            try {
+                const url = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/main/${GITHUB_FILE}`;
+                const resp = await fetch(url);
+                if (!resp.ok) throw new Error('Fetch failed');
+                const data = await resp.json();
+                window.embeddedData = data;
+                carregarDadosDoStorage();
+                salvarDados(); // persiste localmente após carregar do GitHub
+                exibirAlerta('Dados carregados do GitHub.', 'success');
+            } catch (e) {
+                console.error('Erro ao carregar dados do GitHub:', e);
+                exibirAlerta('Erro ao carregar dados do GitHub.', 'error');
+            }
+        };
+
+        /** Salva dados atuais no arquivo data.json do GitHub */
+        const salvarDadosGitHub = async () => {
+            const tokenInput = document.getElementById('githubToken');
+            let token = tokenInput ? tokenInput.value.trim() : '';
+            if (!token) token = localStorage.getItem('github_token') || '';
+            else localStorage.setItem('github_token', token);
+            if (!token) {
+                exibirAlerta('Informe o token do GitHub.', 'error');
+                return;
+            }
+            try {
+                const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+                let sha = undefined;
+                const getResp = await fetch(apiUrl, { headers: { Authorization: `token ${token}` } });
+                if (getResp.ok) {
+                    const getData = await getResp.json();
+                    sha = getData.sha;
+                }
+                const data = JSON.stringify({ empenhos, faturamentos }, null, 2);
+                const content = btoa(unescape(encodeURIComponent(data)));
+                const body = { message: 'Atualiza dados via app', content, sha };
+                const putResp = await fetch(apiUrl, {
+                    method: 'PUT',
+                    headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+                if (!putResp.ok) throw new Error('Erro PUT');
+                exibirAlerta('Dados salvos no GitHub!', 'success');
+            } catch (e) {
+                console.error('Erro ao salvar dados no GitHub:', e);
+                exibirAlerta('Erro ao salvar dados no GitHub.', 'error');
             }
         };
 
@@ -4602,8 +4665,11 @@ const elSE = document.getElementById(`saldoEmpenho${prefix}`);
         }
 
         // Executa ao carregar o conteúdo completo do DOM
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             carregarDadosDoStorage(); // Tenta carregar dados salvos (embutidos ou LocalStorage)
+            if (empenhos.length === 0 && faturamentos.length === 0) {
+                await carregarDadosGitHub();
+            }
             carregarDados(); // Carrega a UI inicial
         });
 
