@@ -573,8 +573,19 @@
             transition: opacity 0.2s;
         }
 
-        .alert button:hover {
-            opacity: 1;
+.alert button:hover {
+    opacity: 1;
+}
+
+        /* Container para os alertas exibidos no topo */
+        #alertas {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            z-index: 10000;
         }
 
         /* Estilos para Containers de Gráficos */
@@ -1070,6 +1081,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </head>
 <body class="manual-theme dark-mode">
 <div class="container">
+<div id="alertas"></div>
 <div class="header-controls">
 <h1 class="">VISA Digital Pagamentos</h1>
 <div class="theme-controls">
@@ -2420,7 +2432,9 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const url = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/main/${GITHUB_FILE}`;
                 const resp = await fetch(url);
-                if (!resp.ok) throw new Error('Fetch failed');
+                if (!resp.ok) {
+                    throw new Error(`HTTP ${resp.status}`);
+                }
                 const data = await resp.json();
                 window.embeddedData = data;
                 carregarDadosDoStorage();
@@ -2428,7 +2442,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 exibirAlerta('Dados carregados do GitHub.', 'success');
             } catch (e) {
                 console.error('Erro ao carregar dados do GitHub:', e);
-                exibirAlerta('Erro ao carregar dados do GitHub.', 'error');
+                exibirAlerta('Erro ao carregar dados do GitHub. Verifique repositório e arquivo.', 'error');
             }
         };
 
@@ -2463,7 +2477,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
                 });
-                if (!putResp.ok) throw new Error('Erro PUT');
+                if (!putResp.ok) {
+                    throw new Error(`HTTP ${putResp.status}`);
+                }
                 exibirAlerta('Dados salvos no GitHub!', 'success');
             } catch (e) {
                 console.error('Erro ao salvar dados no GitHub:', e);
