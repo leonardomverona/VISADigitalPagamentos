@@ -1118,7 +1118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <button class="btn-print" onclick="exportarPdf()">📄 Salvar PDF</button>
 <button class="btn-export" onclick="exportarHtml()">💾 Salvar HTML</button>
 <button class="btn-export" onclick="gerarDashboardInterativo()">📊 Gerar Dashboard Interativo (HTML)</button>
-<input id="githubToken" type="password" placeholder="GitHub Token" style="display:none;" />
+<input id="githubToken" type="password" placeholder="GitHub Token" />
 <button class="btn-export" onclick="carregarDadosGitHub()">🔄 Carregar do GitHub</button>
 <button class="btn-export" onclick="salvarDadosGitHub()">⬆️ Salvar no GitHub</button>
 
@@ -2242,11 +2242,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let empenhos = []; // Armazena objetos de empenho
         let faturamentos = []; // Armazena objetos de faturamento
 
-        // Configurações do repositório GitHub (ajuste para o seu repositório)
+        // Configurações do repositório GitHub.
+        // Ajuste estes valores para o seu repositório antes de usar.
         const GITHUB_OWNER = 'SEU_USUARIO';
         const GITHUB_REPO = 'SEU_REPOSITORIO';
         const GITHUB_FILE = 'data.json';
         const GITHUB_TOKEN = '';
+
+        // Valida se as constantes do repositório foram configuradas
+        const repoConfigurado = () => {
+            return !(GITHUB_OWNER === 'SEU_USUARIO' || GITHUB_REPO === 'SEU_REPOSITORIO');
+        };
 
         // Objeto para armazenar instâncias dos gráficos nos cards
         let graficoCardInstances = {};
@@ -2427,8 +2433,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        /** Carrega dados do GitHub se existir arquivo data.json */
+        /** Carrega dados do GitHub se o repositório estiver configurado */
         const carregarDadosGitHub = async () => {
+            if (!repoConfigurado()) {
+                console.warn('Repositório do GitHub não configurado.');
+                return;
+            }
             try {
                 const url = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/main/${GITHUB_FILE}`;
                 const resp = await fetch(url);
@@ -2448,6 +2458,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         /** Salva dados atuais no arquivo data.json do GitHub */
         const salvarDadosGitHub = async () => {
+            if (!repoConfigurado()) {
+                exibirAlerta('Configure o repositório do GitHub antes de salvar.', 'error');
+                return;
+            }
             let token = GITHUB_TOKEN || localStorage.getItem('github_token') || '';
             if (!token) {
                 const tokenInput = document.getElementById('githubToken');
@@ -4683,10 +4697,13 @@ const elSE = document.getElementById(`saldoEmpenho${prefix}`);
 
         // Executa ao carregar o conteúdo completo do DOM
         document.addEventListener('DOMContentLoaded', async () => {
+            const tokenInput = document.getElementById('githubToken');
             if (GITHUB_TOKEN) {
                 localStorage.setItem('github_token', GITHUB_TOKEN);
-                const tokenInput = document.getElementById('githubToken');
-                if (tokenInput) tokenInput.value = GITHUB_TOKEN;
+                if (tokenInput) {
+                    tokenInput.value = GITHUB_TOKEN;
+                    tokenInput.style.display = 'none';
+                }
             }
 
             await carregarDadosGitHub();
