@@ -5,6 +5,6 @@ Esta aplicação gerencia dados de empenhos e faturamentos. Para habilitar a sin
 - `GITHUB_OWNER` – usuário ou organização do repositório
 - `GITHUB_REPO` – nome do repositório
 - `GITHUB_FILE` – arquivo onde os dados serão salvos (padrão `data.json`)
-- `GITHUB_TOKEN` – token pessoal de acesso (opcional). Se não definido, informe manualmente no campo **GitHub Token** ao abrir a página.
+- `GITHUB_TOKEN` – token pessoal de acesso (opcional). Caso deixe em branco, informe manualmente no campo **GitHub Token** quando abrir a página.
 
 Após configurar, os dados serão carregados do GitHub automaticamente na inicialização e salvos sempre que forem alterados.

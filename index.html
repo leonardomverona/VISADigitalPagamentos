@@ -2436,7 +2436,7 @@ document.addEventListener('DOMContentLoaded', () => {
         /** Carrega dados do GitHub se o repositório estiver configurado */
         const carregarDadosGitHub = async () => {
             if (!repoConfigurado()) {
-                console.warn('Repositório do GitHub não configurado.');
+                exibirAlerta('Repositório do GitHub não configurado.', 'error');
                 return;
             }
             try {
