@@ -2444,7 +2444,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tokenInput = document.getElementById('githubToken');
                 if (tokenInput) token = tokenInput.value.trim();
             }
-            if (token) localStorage.setItem('github_token', token);
+            if (!token) {
+                exibirAlerta('Token do GitHub não configurado.', 'error');
+                return;
+            }
+            localStorage.setItem('github_token', token);
 
             try {
                 const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
@@ -4713,10 +4717,16 @@ const elSE = document.getElementById(`saldoEmpenho${prefix}`);
         // Executa ao carregar o conteúdo completo do DOM
         document.addEventListener('DOMContentLoaded', async () => {
             const tokenInput = document.getElementById('githubToken');
+            const stored = localStorage.getItem('github_token');
             if (GITHUB_TOKEN) {
                 localStorage.setItem('github_token', GITHUB_TOKEN);
                 if (tokenInput) {
                     tokenInput.value = GITHUB_TOKEN;
+                    tokenInput.style.display = 'none';
+                }
+            } else if (stored) {
+                if (tokenInput) {
+                    tokenInput.value = stored;
                     tokenInput.style.display = 'none';
                 }
             }
