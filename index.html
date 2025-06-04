@@ -544,6 +544,13 @@
             transition: opacity 0.5s ease;
         }
 
+        .alert-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1100;
+        }
+
         .alert.hide {
             opacity: 0;
         }
@@ -1074,6 +1081,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // A lógica de carregamento na função carregarDadosDoStorage irá priorizar window.embeddedData
                 </script></head>
 <body class="manual-theme dark-mode">
+<div id="alertas" class="alert-container"></div>
 <div class="container">
 <div class="header-controls">
 <h1 class="">VISA Digital Pagamentos</h1>
@@ -2578,7 +2586,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  }
              } else {
                   // Garante que a coluna Ações existe no modo editável (útil se renderizar novamente)
-                  if (!cabecalhoTabela.querySelector('th:last-child')?.textContent === 'Ações') {
+                 if (cabecalhoTabela.querySelector('th:last-child')?.textContent !== 'Ações') {
                        const thAcoes = document.createElement('th');
                        thAcoes.textContent = 'Ações';
                        cabecalhoTabela.appendChild(thAcoes);
@@ -2668,7 +2676,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  }
              } else {
                  // Garante que a coluna Ações existe no modo editável (útil se renderizar novamente)
-                 if (!cabecalhoTabela.querySelector('th:last-child')?.textContent === 'Ações') {
+                 if (cabecalhoTabela.querySelector('th:last-child')?.textContent !== 'Ações') {
                       const thAcoes = document.createElement('th');
                       thAcoes.textContent = 'Ações';
                       cabecalhoTabela.appendChild(thAcoes);
