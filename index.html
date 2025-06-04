@@ -1111,7 +1111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <button class="btn-print" onclick="exportarPdf()">📄 Salvar PDF</button>
 <button class="btn-export" onclick="exportarHtml()">💾 Salvar HTML</button>
 <button class="btn-export" onclick="gerarDashboardInterativo()">📊 Gerar Dashboard Interativo (HTML)</button>
-<input id="githubToken" type="password" placeholder="GitHub Token" style="max-width:150px;" />
+<input id="githubToken" type="password" placeholder="GitHub Token" style="display:none;" />
 <button class="btn-export" onclick="carregarDadosGitHub()">🔄 Carregar do GitHub</button>
 <button class="btn-export" onclick="salvarDadosGitHub()">⬆️ Salvar no GitHub</button>
 
@@ -2239,6 +2239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const GITHUB_OWNER = 'SEU_USUARIO';
         const GITHUB_REPO = 'SEU_REPOSITORIO';
         const GITHUB_FILE = 'data.json';
+        const GITHUB_TOKEN = '';
 
         // Objeto para armazenar instâncias dos gráficos nos cards
         let graficoCardInstances = {};
@@ -2342,7 +2343,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('empenhos_visa', JSON.stringify(empenhosParaSalvar));
                 localStorage.setItem('faturamentos_visa', JSON.stringify(faturamentos));
 
-                const token = localStorage.getItem('github_token');
+                const token = localStorage.getItem('github_token') || GITHUB_TOKEN;
                 if (token) salvarDadosGitHub();
 
                 // Não exibe alerta de sucesso para evitar poluir a tela em cada salvamento automático
@@ -2438,12 +2439,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         /** Salva dados atuais no arquivo data.json do GitHub */
         const salvarDadosGitHub = async () => {
-            const tokenInput = document.getElementById('githubToken');
-            let token = tokenInput ? tokenInput.value.trim() : '';
-            if (!token) token = localStorage.getItem('github_token') || '';
-            else localStorage.setItem('github_token', token);
+            let token = GITHUB_TOKEN || localStorage.getItem('github_token') || '';
             if (!token) {
-                exibirAlerta('Informe o token do GitHub.', 'error');
+                const tokenInput = document.getElementById('githubToken');
+                if (tokenInput) token = tokenInput.value.trim();
+            }
+            if (token) {
+                localStorage.setItem('github_token', token);
+                const tokenInput = document.getElementById('githubToken');
+                if (tokenInput) tokenInput.value = token;
+            } else {
+                exibirAlerta('Token do GitHub não configurado.', 'error');
                 return;
             }
             try {
@@ -4666,9 +4672,15 @@ const elSE = document.getElementById(`saldoEmpenho${prefix}`);
 
         // Executa ao carregar o conteúdo completo do DOM
         document.addEventListener('DOMContentLoaded', async () => {
-            carregarDadosDoStorage(); // Tenta carregar dados salvos (embutidos ou LocalStorage)
+            if (GITHUB_TOKEN) {
+                localStorage.setItem('github_token', GITHUB_TOKEN);
+                const tokenInput = document.getElementById('githubToken');
+                if (tokenInput) tokenInput.value = GITHUB_TOKEN;
+            }
+
+            await carregarDadosGitHub();
             if (empenhos.length === 0 && faturamentos.length === 0) {
-                await carregarDadosGitHub();
+                carregarDadosDoStorage();
             }
             carregarDados(); // Carrega a UI inicial
         });
