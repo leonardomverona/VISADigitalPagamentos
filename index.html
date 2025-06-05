@@ -573,8 +573,19 @@
             transition: opacity 0.2s;
         }
 
-        .alert button:hover {
-            opacity: 1;
+.alert button:hover {
+    opacity: 1;
+}
+
+        /* Container para os alertas exibidos no topo */
+        #alertas {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            z-index: 10000;
         }
 
         /* Estilos para Containers de Gráficos */
@@ -1065,16 +1076,12 @@ document.addEventListener('DOMContentLoaded', () => {
           color: #6c757d;
           opacity: 0.6;
         }
-      </style><script>
-                    // Dados embutidos salvos em 04/06/2025 09:31:53
-                    window.embeddedData = {
-                        empenhos: [{"id":"1747664783924","contrato":"9275811/2021","numeroEmpenho":"1185","anoEmpenho":2025,"tipoEmpenho":"Inicial","valorOriginalEmpenho":1200246,"statusEmpenho":"Ativo"},{"id":"1747664885484","contrato":"9389678/2023","numeroEmpenho":"128","anoEmpenho":2025,"tipoEmpenho":"Inicial","valorOriginalEmpenho":70656.36,"statusEmpenho":"Ativo"},{"id":"1747679412829","contrato":"9275811/2021","numeroEmpenho":"1129","anoEmpenho":2024,"tipoEmpenho":"Inicial","valorOriginalEmpenho":2219600,"statusEmpenho":"Ativo"},{"id":"1747834627090","contrato":"9389678/2023","numeroEmpenho":"87","anoEmpenho":2024,"tipoEmpenho":"Inicial","valorOriginalEmpenho":126456.21,"statusEmpenho":"Ativo"}],
-                        faturamentos: [{"id":"1747665239699","contrato":"9275811/2021","mesAnoServico":"2025-01","empenhoVinculado":"1747664783924","valorPreFat":191215,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":"105692155, 107036665","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 60, Sprint 61","sprintsApproved":true,"status":"Pré-faturado"},{"id":"1747665361472","contrato":"9275811/2021","mesAnoServico":"2025-02","empenhoVinculado":"1747664783924","valorPreFat":107047,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":"107407132","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 62","sprintsApproved":true,"status":"Pré-faturado"},{"id":"1747666826427","contrato":"9275811/2021","mesAnoServico":"2025-03","empenhoVinculado":"1747664783924","valorPreFat":236973,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":"109406043, 110364325","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 63 e Sprint 64","sprintsApproved":true,"status":"Pré-faturado"},{"id":"1747667035156","contrato":"9275811/2021","mesAnoServico":"2025-04","empenhoVinculado":"1747664783924","valorPreFat":113226,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":"111843046","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 65","sprintsApproved":true,"status":"Pré-faturado"},{"id":"1747667435124","contrato":"9389678/2023","mesAnoServico":"2025-01","empenhoVinculado":"1747664885484","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747667469587","contrato":"9389678/2023","mesAnoServico":"2025-02","empenhoVinculado":"1747664885484","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747669521508","contrato":"9389678/2023","mesAnoServico":"2025-03","empenhoVinculado":"1747664885484","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747669631291","contrato":"9389678/2023","mesAnoServico":"2025-04","empenhoVinculado":"1747664885484","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747680002229","contrato":"9275811/2021","mesAnoServico":"2024-01","empenhoVinculado":"1747679412829","valorPreFat":87675,"numeroNF":"1817","dataNF":"2024-03-25","dataAteste":"2024-03-26","docAceiteSprint":"79598602, 81013667","dataLiquidacao":"2024-04-17","dataPagamento":"2024-05-06","observacoes":null,"sprintInfo":"Sprint 40, Sprint 41","sprintsApproved":true,"status":"Paga"},{"id":"1747834714184","contrato":"9275811/2021","mesAnoServico":"2024-02","empenhoVinculado":"1747679412829","valorPreFat":165998,"numeroNF":"1818","dataNF":"2024-03-25","dataAteste":"2024-03-27","docAceiteSprint":"81622425, 81946716","dataLiquidacao":"2024-04-17","dataPagamento":"2024-06-06","observacoes":null,"sprintInfo":"Sprint 42 e Sprint 43","sprintsApproved":true,"status":"Paga"},{"id":"1747834714233","contrato":"9275811/2021","mesAnoServico":"2024-03","empenhoVinculado":"1747679412829","valorPreFat":103707,"numeroNF":"2296","dataNF":"2024-04-12","dataAteste":"2024-04-12","docAceiteSprint":"84345075","dataLiquidacao":"2024-04-17","dataPagamento":"2024-05-06","observacoes":null,"sprintInfo":"Sprint 44","sprintsApproved":true,"status":"Paga"},{"id":"1747834714682","contrato":"9275811/2021","mesAnoServico":"2024-04","empenhoVinculado":"1747679412829","valorPreFat":215430,"numeroNF":"2607","dataNF":"2024-05-10","dataAteste":"2024-05-13","docAceiteSprint":"85870798, 87219771","dataLiquidacao":"2024-05-22","dataPagamento":"2024-06-06","observacoes":null,"sprintInfo":"Sprint 45 e Sprint 46","sprintsApproved":true,"status":"Paga"},{"id":"1747834714143","contrato":"9275811/2021","mesAnoServico":"2024-05","empenhoVinculado":"1747679412829","valorPreFat":221442,"numeroNF":"4259","dataNF":"2024-07-15","dataAteste":"2024-07-16","docAceiteSprint":"88248517, 89223309","dataLiquidacao":"2024-07-17","dataPagamento":"2024-07-25","observacoes":null,"sprintInfo":"Sprint 47 e Sprint 48","sprintsApproved":true,"status":"Paga"},{"id":"1747834714620","contrato":"9275811/2021","mesAnoServico":"2024-06","empenhoVinculado":"1747679412829","valorPreFat":102371,"numeroNF":"4260","dataNF":"2024-07-15","dataAteste":"2024-07-16","docAceiteSprint":"90911395","dataLiquidacao":"2024-07-17","dataPagamento":"2024-07-25","observacoes":null,"sprintInfo":"Sprint 49","sprintsApproved":true,"status":"Paga"},{"id":"1747834714105","contrato":"9275811/2021","mesAnoServico":"2024-07","empenhoVinculado":"1747679412829","valorPreFat":210086,"numeroNF":"5633","dataNF":"2024-09-27","dataAteste":"2024-10-01","docAceiteSprint":"92076522, 92692079","dataLiquidacao":"2024-10-04","dataPagamento":"2024-10-17","observacoes":null,"sprintInfo":"Sprint 50 e Sprint 51","sprintsApproved":true,"status":"Paga"},{"id":"1747834713875","contrato":"9275811/2021","mesAnoServico":"2024-08","empenhoVinculado":"1747679412829","valorPreFat":93687,"numeroNF":"5634","dataNF":"2024-09-27","dataAteste":"2024-10-01","docAceiteSprint":"94142024","dataLiquidacao":"2024-10-04","dataPagamento":"2024-10-17","observacoes":null,"sprintInfo":"Sprint 52","sprintsApproved":true,"status":"Paga"},{"id":"1747834713750","contrato":"9275811/2021","mesAnoServico":"2024-08","empenhoVinculado":"1747679412829","valorPreFat":96359,"numeroNF":"5635","dataNF":"2024-09-27","dataAteste":"2024-09-28","docAceiteSprint":"94142024","dataLiquidacao":"2024-10-04","dataPagamento":"2024-10-17","observacoes":null,"sprintInfo":"Sprint 52","sprintsApproved":true,"status":"Paga"},{"id":"1747834713834","contrato":"9275811/2021","mesAnoServico":"2024-09","empenhoVinculado":"1747679412829","valorPreFat":188042,"numeroNF":"2454","dataNF":"2025-04-30","dataAteste":"2025-05-05","docAceiteSprint":"97523708, 98353616","dataLiquidacao":"2025-05-06","dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 54 e Sprint 55","sprintsApproved":true,"status":"Liquidada"},{"id":"1747834714444","contrato":"9275811/2021","mesAnoServico":"2024-10","empenhoVinculado":"1747679412829","valorPreFat":121075,"numeroNF":"2455","dataNF":"2025-04-30","dataAteste":"2025-05-05","docAceiteSprint":"100521829","dataLiquidacao":"2025-05-06","dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 56","sprintsApproved":true,"status":"Liquidada"},{"id":"1747834714459","contrato":"9275811/2021","mesAnoServico":"2024-11","empenhoVinculado":"1747679412829","valorPreFat":254842,"numeroNF":"2456","dataNF":"2025-04-30","dataAteste":"2025-05-05","docAceiteSprint":"101440049, 102988966","dataLiquidacao":"2025-05-06","dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 57 e Sprint 58","sprintsApproved":true,"status":"Liquidada"},{"id":"1747834713995","contrato":"9275811/2021","mesAnoServico":"2024-12","empenhoVinculado":"1747679412829","valorPreFat":151135,"numeroNF":"2450","dataNF":"2025-04-30","dataAteste":"2025-05-05","docAceiteSprint":"104283065","dataLiquidacao":"2025-05-06","dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 59","sprintsApproved":true,"status":"Liquidada"},{"id":"1747834714108","contrato":"9275811/2021","mesAnoServico":"2024-12","empenhoVinculado":"1747679412829","valorPreFat":54943,"numeroNF":"3108","dataNF":"2025-05-29","dataAteste":null,"docAceiteSprint":"105692155","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 60","sprintsApproved":true,"status":"NF Emitida"},{"id":"1747834714326","contrato":"9389678/2023","mesAnoServico":"2024-01","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"1819","dataNF":"2024-03-25","dataAteste":"2024-03-26","docAceiteSprint":null,"dataLiquidacao":"2024-04-01","dataPagamento":"2024-04-26","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834713989","contrato":"9389678/2023","mesAnoServico":"2024-02","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"1820","dataNF":"2024-03-25","dataAteste":"2024-03-26","docAceiteSprint":null,"dataLiquidacao":"2024-04-01","dataPagamento":"2024-04-26","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834714053","contrato":"9389678/2023","mesAnoServico":"2024-03","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"2109","dataNF":"2024-04-10","dataAteste":"2024-04-11","docAceiteSprint":null,"dataLiquidacao":"2024-04-16","dataPagamento":"2024-05-28","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834714195","contrato":"9389678/2023","mesAnoServico":"2024-04","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"2610","dataNF":"2024-05-10","dataAteste":"2024-05-10","docAceiteSprint":null,"dataLiquidacao":"2024-05-15","dataPagamento":"2024-05-28","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834714174","contrato":"9389678/2023","mesAnoServico":"2024-05","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"3743","dataNF":"2024-06-28","dataAteste":"2024-07-09","docAceiteSprint":null,"dataLiquidacao":"2024-07-16","dataPagamento":"2024-07-23","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834714324","contrato":"9389678/2023","mesAnoServico":"2024-06","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"4356","dataNF":"2024-07-19","dataAteste":"2024-07-19","docAceiteSprint":null,"dataLiquidacao":"2024-07-19","dataPagamento":"2024-07-30","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834713919","contrato":"9389678/2023","mesAnoServico":"2024-07","empenhoVinculado":"1747834627090","valorPreFat":8166.42,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747834714451","contrato":"9389678/2023","mesAnoServico":"2024-07","empenhoVinculado":"1747834627090","valorPreFat":2107.54,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747834714092","contrato":"9389678/2023","mesAnoServico":"2024-08","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747834714585","contrato":"9389678/2023","mesAnoServico":"2024-09","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747834714227","contrato":"9389678/2023","mesAnoServico":"2024-10","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747834713882","contrato":"9389678/2023","mesAnoServico":"2024-11","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"},{"id":"1747834714368","contrato":"9389678/2023","mesAnoServico":"2024-12","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"}]
-                    };
-                    // A lógica de carregamento na função carregarDadosDoStorage irá priorizar window.embeddedData
-                </script></head>
+      </style>
+        <!-- Dados agora são carregados de data.json no GitHub -->
+    </head>
 <body class="manual-theme dark-mode">
 <div class="container">
+<div id="alertas"></div>
 <div class="header-controls">
 <h1 class="">VISA Digital Pagamentos</h1>
 <div class="theme-controls">
@@ -1111,6 +1118,9 @@ document.addEventListener('DOMContentLoaded', () => {
 <button class="btn-print" onclick="exportarPdf()">📄 Salvar PDF</button>
 <button class="btn-export" onclick="exportarHtml()">💾 Salvar HTML</button>
 <button class="btn-export" onclick="gerarDashboardInterativo()">📊 Gerar Dashboard Interativo (HTML)</button>
+<input id="githubToken" type="password" placeholder="GitHub Token" />
+<button class="btn-export" onclick="carregarDadosGitHub()">🔄 Carregar do GitHub</button>
+<button class="btn-export" onclick="salvarDadosGitHub()">⬆️ Salvar no GitHub</button>
 
 </div>
 <h2 class="">📊 Dashboard</h2>
@@ -2232,6 +2242,18 @@ document.addEventListener('DOMContentLoaded', () => {
         let empenhos = []; // Armazena objetos de empenho
         let faturamentos = []; // Armazena objetos de faturamento
 
+        // Configurações do repositório GitHub.
+        // Ajuste estes valores para o seu repositório antes de usar.
+        const GITHUB_OWNER = 'leonardomverona';
+        const GITHUB_REPO = 'VISADigitalPagamentos';
+        const GITHUB_FILE = 'data.json';
+        const GITHUB_TOKEN = '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';
+
+        // Valida se as constantes do repositório foram configuradas
+        const repoConfigurado = () => {
+            return !(GITHUB_OWNER === 'leonardomverona' || GITHUB_REPO === 'VISADigitalPagamentos');
+        };
+
         // Objeto para armazenar instâncias dos gráficos nos cards
         let graficoCardInstances = {};
 
@@ -2333,6 +2355,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const empenhosParaSalvar = empenhos.filter(e => e.tipoEmpenho === 'Inicial');
                 localStorage.setItem('empenhos_visa', JSON.stringify(empenhosParaSalvar));
                 localStorage.setItem('faturamentos_visa', JSON.stringify(faturamentos));
+
+                const token = localStorage.getItem('github_token') || GITHUB_TOKEN;
+                if (token) salvarDadosGitHub();
+
                 // Não exibe alerta de sucesso para evitar poluir a tela em cada salvamento automático
             } catch (e) {
                 console.error("Erro ao salvar dados no LocalStorage:", e);
@@ -2404,6 +2430,93 @@ document.addEventListener('DOMContentLoaded', () => {
                 empenhos = []; // Limpa os dados se ocorrer um erro grave
                 faturamentos = [];
                 exibirAlerta(`Erro ao carregar dados salvos do ${loadedFrom}. Os dados foram resetados.`, "error");
+            }
+        };
+
+        /** Carrega dados do GitHub se o repositório estiver configurado */
+        const carregarDadosGitHub = async () => {
+            if (!repoConfigurado()) {
+                exibirAlerta('Repositório do GitHub não configurado.', 'error');
+                return;
+            }
+            let token = GITHUB_TOKEN || localStorage.getItem('github_token') || '';
+            if (!token) {
+                const tokenInput = document.getElementById('githubToken');
+                if (tokenInput) token = tokenInput.value.trim();
+            }
+            if (!token) {
+                exibirAlerta('Token do GitHub não configurado.', 'error');
+                return;
+            }
+            localStorage.setItem('github_token', token);
+
+            try {
+                const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+                const headers = token ? { Authorization: `token ${token}` } : {};
+                const resp = await fetch(apiUrl, { headers });
+                if (!resp.ok) {
+                    if (resp.status === 404) {
+                        window.embeddedData = { empenhos: [], faturamentos: [] };
+                        carregarDadosDoStorage();
+                        exibirAlerta('Arquivo inexistente no GitHub. Usando dados vazios.', 'warn');
+                        return;
+                    }
+                    throw new Error(`HTTP ${resp.status}`);
+                }
+                const data = await resp.json();
+                const decoded = atob(data.content.replace(/\n/g, ''));
+                window.embeddedData = JSON.parse(decoded);
+                carregarDadosDoStorage();
+                salvarDados(); // persiste localmente após carregar do GitHub
+                exibirAlerta('Dados carregados do GitHub.', 'success');
+            } catch (e) {
+                console.error('Erro ao carregar dados do GitHub:', e);
+                exibirAlerta('Erro ao carregar dados do GitHub. Verifique repositório e arquivo.', 'error');
+            }
+        };
+
+        /** Salva dados atuais no arquivo data.json do GitHub */
+        const salvarDadosGitHub = async () => {
+            if (!repoConfigurado()) {
+                exibirAlerta('Configure o repositório do GitHub antes de salvar.', 'error');
+                return;
+            }
+            let token = GITHUB_TOKEN || localStorage.getItem('github_token') || '';
+            if (!token) {
+                const tokenInput = document.getElementById('githubToken');
+                if (tokenInput) token = tokenInput.value.trim();
+            }
+            if (token) {
+                localStorage.setItem('github_token', token);
+                const tokenInput = document.getElementById('githubToken');
+                if (tokenInput) tokenInput.value = token;
+            } else {
+                exibirAlerta('Token do GitHub não configurado.', 'error');
+                return;
+            }
+            try {
+                const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+                let sha = undefined;
+                const getResp = await fetch(apiUrl, { headers: { Authorization: `token ${token}` } });
+                if (getResp.ok) {
+                    const getData = await getResp.json();
+                    sha = getData.sha;
+                }
+                const data = JSON.stringify({ empenhos, faturamentos }, null, 2);
+                const content = btoa(unescape(encodeURIComponent(data)));
+                const body = { message: 'Atualiza dados via app', content, sha };
+                const putResp = await fetch(apiUrl, {
+                    method: 'PUT',
+                    headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+                if (!putResp.ok) {
+                    throw new Error(`HTTP ${putResp.status}`);
+                }
+                exibirAlerta('Dados salvos no GitHub!', 'success');
+            } catch (e) {
+                console.error('Erro ao salvar dados no GitHub:', e);
+                exibirAlerta('Erro ao salvar dados no GitHub.', 'error');
             }
         };
 
@@ -4602,8 +4715,26 @@ const elSE = document.getElementById(`saldoEmpenho${prefix}`);
         }
 
         // Executa ao carregar o conteúdo completo do DOM
-        document.addEventListener('DOMContentLoaded', () => {
-            carregarDadosDoStorage(); // Tenta carregar dados salvos (embutidos ou LocalStorage)
+        document.addEventListener('DOMContentLoaded', async () => {
+            const tokenInput = document.getElementById('githubToken');
+            const stored = localStorage.getItem('github_token');
+            if (GITHUB_TOKEN) {
+                localStorage.setItem('github_token', GITHUB_TOKEN);
+                if (tokenInput) {
+                    tokenInput.value = GITHUB_TOKEN;
+                    tokenInput.style.display = 'none';
+                }
+            } else if (stored) {
+                if (tokenInput) {
+                    tokenInput.value = stored;
+                    tokenInput.style.display = 'none';
+                }
+            }
+
+            await carregarDadosGitHub();
+            if (empenhos.length === 0 && faturamentos.length === 0) {
+                carregarDadosDoStorage();
+            }
             carregarDados(); // Carrega a UI inicial
         });
 
