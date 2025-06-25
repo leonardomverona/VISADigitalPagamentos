@@ -956,15 +956,118 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+
+<style>
+  /* Tipografia */
+  body, button, input, select, textarea { font-family: 'Inter', sans-serif; }
+
+  /* Cores e contraste */
+  body { background-color: #f9fafb; color: #1f2937; margin: 0; padding: 0; }
+  header, nav, footer { background-color: #ffffff; }
+
+  /* Container de tabela para responsividade */
+  .table-container { width: 100%; overflow-x: auto; margin-bottom: 1.5rem; }
+
+  /* Tabela */
+  table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  table thead { background-color: #2563eb; color: #ffffff; position: sticky; top: 0; }
+  table th, table td { padding: 0.75rem 1rem; border-bottom: 1px solid #e5e7eb; text-align: left; }
+  table tbody tr:hover { background-color: #f3f4f6; }
+
+  /* Botões */
+  button { background-color: #2563eb; color: #ffffff; padding: 0.5rem 1rem; border: none; border-radius: 0.375rem; font-size: 0.875rem; cursor: pointer; transition: background-color 0.2s ease-in-out; }
+  button:hover { background-color: #1d4ed8; }
+
+  /* Responsividade geral */
+  @media (max-width: 640px) {
+    body { padding: 0.5rem; }
+  }
+</style>
+
+
+<!-- estilo macOS elementary 9 custom -->
+<style>
+  :root {
+      --surface-light: #f5f5f7;
+      --surface-dark: #1e1e1e;
+      --card-light: #ffffff;
+      --card-dark: #2c2c2e;
+      --accent-light: #1e90ff;
+      --accent-dark: #0a84ff;
+  }
+
+  body {
+      background-color: var(--surface-light);
+      transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  body.dark-mode {
+      background-color: var(--surface-dark);
+      color: #f5f5f7;
+  }
+
+  .card {
+      background: var(--card-light);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: move;
+      user-select: none;
+  }
+  body.dark-mode .card {
+      background: var(--card-dark);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+  .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  .card.dragging {
+      opacity: 0.5;
+  }
+  .card.over {
+      border: 2px dashed var(--accent-light);
+  }
+  body.dark-mode .card.over {
+      border: 2px dashed var(--accent-dark);
+  }
+
+  /* Toggle Button */
+  #themeToggle {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--accent-light);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 0.9rem;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+      z-index: 999;
+  }
+  body.dark-mode #themeToggle {
+      background: var(--accent-dark);
+  }
+  @media (prefers-color-scheme: dark) {
+      body:not(.manual-theme) {
+          background-color: var(--surface-dark);
+          color: #f5f5f7;
+      }
+  }
+</style>
+
 <script>
-                    // Dados embutidos salvos em 25/06/2025 13:41:18
+                    // Dados embutidos salvos em 25/06/2025 13:46:30
                     window.embeddedData = {
                         empenhos: [{"id":"1747664783924","contrato":"9275811/2021","numeroEmpenho":"1185","anoEmpenho":2025,"tipoEmpenho":"Inicial","valorOriginalEmpenho":1200246,"statusEmpenho":"Ativo"},{"id":"1747664885484","contrato":"9389678/2023","numeroEmpenho":"128","anoEmpenho":2025,"tipoEmpenho":"Inicial","valorOriginalEmpenho":70656.36,"statusEmpenho":"Ativo"},{"id":"1747679412829","contrato":"9275811/2021","numeroEmpenho":"1129","anoEmpenho":2024,"tipoEmpenho":"Inicial","valorOriginalEmpenho":2219600,"statusEmpenho":"Ativo"},{"id":"1747834627090","contrato":"9389678/2023","numeroEmpenho":"87","anoEmpenho":2024,"tipoEmpenho":"Inicial","valorOriginalEmpenho":126456.21,"statusEmpenho":"Ativo"}],
                         faturamentos: [{"id":"1747665239699","contrato":"9275811/2021","mesAnoServico":"2025-01","empenhoVinculado":"1747664783924","valorPreFat":191215,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":"105692155, 107036665","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 60, Sprint 61","sprintsApproved":true,"status":"Pré-faturado"},{"id":"1747665361472","contrato":"9275811/2021","mesAnoServico":"2025-02","empenhoVinculado":"1747664783924","valorPreFat":107047,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":"107407132","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 62","sprintsApproved":true,"status":"Pré-faturado"},{"id":"1747666826427","contrato":"9275811/2021","mesAnoServico":"2025-03","empenhoVinculado":"1747664783924","valorPreFat":236973,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":"109406043, 110364325","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 63 e Sprint 64","sprintsApproved":true,"status":"Pré-faturado"},{"id":"1747667035156","contrato":"9275811/2021","mesAnoServico":"2025-04","empenhoVinculado":"1747664783924","valorPreFat":113226,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":"111843046","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 65","sprintsApproved":true,"status":"Pré-faturado"},{"id":"1747667435124","contrato":"9389678/2023","mesAnoServico":"2025-01","empenhoVinculado":"1747664885484","valorPreFat":10537.7,"numeroNF":"3106","dataNF":"2025-05-29","dataAteste":"2025-06-12","docAceiteSprint":null,"dataLiquidacao":"2025-06-13","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747667469587","contrato":"9389678/2023","mesAnoServico":"2025-02","empenhoVinculado":"1747664885484","valorPreFat":10537.7,"numeroNF":"3107","dataNF":"2025-05-29","dataAteste":"2025-06-12","docAceiteSprint":null,"dataLiquidacao":"2025-06-13","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747669521508","contrato":"9389678/2023","mesAnoServico":"2025-03","empenhoVinculado":"1747664885484","valorPreFat":10537.7,"numeroNF":"3191","dataNF":"2025-05-29","dataAteste":"2025-06-12","docAceiteSprint":null,"dataLiquidacao":"2025-06-13","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747669631291","contrato":"9389678/2023","mesAnoServico":"2025-04","empenhoVinculado":"1747664885484","valorPreFat":10537.7,"numeroNF":"3192","dataNF":"2025-05-29","dataAteste":"2025-06-12","docAceiteSprint":null,"dataLiquidacao":"2025-06-13","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747680002229","contrato":"9275811/2021","mesAnoServico":"2024-01","empenhoVinculado":"1747679412829","valorPreFat":87675,"numeroNF":"1817","dataNF":"2024-03-25","dataAteste":"2024-03-26","docAceiteSprint":"79598602, 81013667","dataLiquidacao":"2024-04-17","dataPagamento":"2024-05-06","observacoes":null,"sprintInfo":"Sprint 40, Sprint 41","sprintsApproved":true,"status":"Paga"},{"id":"1747834714184","contrato":"9275811/2021","mesAnoServico":"2024-02","empenhoVinculado":"1747679412829","valorPreFat":165998,"numeroNF":"1818","dataNF":"2024-03-25","dataAteste":"2024-03-27","docAceiteSprint":"81622425, 81946716","dataLiquidacao":"2024-04-17","dataPagamento":"2024-06-06","observacoes":null,"sprintInfo":"Sprint 42 e Sprint 43","sprintsApproved":true,"status":"Paga"},{"id":"1747834714233","contrato":"9275811/2021","mesAnoServico":"2024-03","empenhoVinculado":"1747679412829","valorPreFat":103707,"numeroNF":"2296","dataNF":"2024-04-12","dataAteste":"2024-04-12","docAceiteSprint":"84345075","dataLiquidacao":"2024-04-17","dataPagamento":"2024-05-06","observacoes":null,"sprintInfo":"Sprint 44","sprintsApproved":true,"status":"Paga"},{"id":"1747834714682","contrato":"9275811/2021","mesAnoServico":"2024-04","empenhoVinculado":"1747679412829","valorPreFat":215430,"numeroNF":"2607","dataNF":"2024-05-10","dataAteste":"2024-05-13","docAceiteSprint":"85870798, 87219771","dataLiquidacao":"2024-05-22","dataPagamento":"2024-06-06","observacoes":null,"sprintInfo":"Sprint 45 e Sprint 46","sprintsApproved":true,"status":"Paga"},{"id":"1747834714143","contrato":"9275811/2021","mesAnoServico":"2024-05","empenhoVinculado":"1747679412829","valorPreFat":221442,"numeroNF":"4259","dataNF":"2024-07-15","dataAteste":"2024-07-16","docAceiteSprint":"88248517, 89223309","dataLiquidacao":"2024-07-17","dataPagamento":"2024-07-25","observacoes":null,"sprintInfo":"Sprint 47 e Sprint 48","sprintsApproved":true,"status":"Paga"},{"id":"1747834714620","contrato":"9275811/2021","mesAnoServico":"2024-06","empenhoVinculado":"1747679412829","valorPreFat":102371,"numeroNF":"4260","dataNF":"2024-07-15","dataAteste":"2024-07-16","docAceiteSprint":"90911395","dataLiquidacao":"2024-07-17","dataPagamento":"2024-07-25","observacoes":null,"sprintInfo":"Sprint 49","sprintsApproved":true,"status":"Paga"},{"id":"1747834714105","contrato":"9275811/2021","mesAnoServico":"2024-07","empenhoVinculado":"1747679412829","valorPreFat":210086,"numeroNF":"5633","dataNF":"2024-09-27","dataAteste":"2024-10-01","docAceiteSprint":"92076522, 92692079","dataLiquidacao":"2024-10-04","dataPagamento":"2024-10-17","observacoes":null,"sprintInfo":"Sprint 50 e Sprint 51","sprintsApproved":true,"status":"Paga"},{"id":"1747834713875","contrato":"9275811/2021","mesAnoServico":"2024-08","empenhoVinculado":"1747679412829","valorPreFat":93687,"numeroNF":"5634","dataNF":"2024-09-27","dataAteste":"2024-10-01","docAceiteSprint":"94142024","dataLiquidacao":"2024-10-04","dataPagamento":"2024-10-17","observacoes":null,"sprintInfo":"Sprint 52","sprintsApproved":true,"status":"Paga"},{"id":"1747834713750","contrato":"9275811/2021","mesAnoServico":"2024-08","empenhoVinculado":"1747679412829","valorPreFat":96359,"numeroNF":"5635","dataNF":"2024-09-27","dataAteste":"2024-09-28","docAceiteSprint":"94142024","dataLiquidacao":"2024-10-04","dataPagamento":"2024-10-17","observacoes":null,"sprintInfo":"Sprint 52","sprintsApproved":true,"status":"Paga"},{"id":"1747834713834","contrato":"9275811/2021","mesAnoServico":"2024-09","empenhoVinculado":"1747679412829","valorPreFat":188042,"numeroNF":"2454","dataNF":"2025-04-30","dataAteste":"2025-05-05","docAceiteSprint":"97523708, 98353616","dataLiquidacao":"2025-05-06","dataPagamento":"2025-05-23","observacoes":null,"sprintInfo":"Sprint 54 e Sprint 55","sprintsApproved":true,"status":"Paga"},{"id":"1747834714444","contrato":"9275811/2021","mesAnoServico":"2024-10","empenhoVinculado":"1747679412829","valorPreFat":121075,"numeroNF":"2455","dataNF":"2025-04-30","dataAteste":"2025-05-05","docAceiteSprint":"100521829","dataLiquidacao":"2025-05-06","dataPagamento":"2025-05-23","observacoes":null,"sprintInfo":"Sprint 56","sprintsApproved":true,"status":"Paga"},{"id":"1747834714459","contrato":"9275811/2021","mesAnoServico":"2024-11","empenhoVinculado":"1747679412829","valorPreFat":254842,"numeroNF":"2456","dataNF":"2025-04-30","dataAteste":"2025-05-05","docAceiteSprint":"101440049, 102988966","dataLiquidacao":"2025-05-06","dataPagamento":"2025-05-23","observacoes":null,"sprintInfo":"Sprint 57 e Sprint 58","sprintsApproved":true,"status":"Paga"},{"id":"1747834713995","contrato":"9275811/2021","mesAnoServico":"2024-12","empenhoVinculado":"1747679412829","valorPreFat":151135,"numeroNF":"2450","dataNF":"2025-04-30","dataAteste":"2025-05-05","docAceiteSprint":"104283065","dataLiquidacao":"2025-05-06","dataPagamento":"2025-05-23","observacoes":null,"sprintInfo":"Sprint 59","sprintsApproved":true,"status":"Paga"},{"id":"1747834714108","contrato":"9275811/2021","mesAnoServico":"2024-12","empenhoVinculado":"1747679412829","valorPreFat":54943,"numeroNF":"3108","dataNF":"2025-05-29","dataAteste":null,"docAceiteSprint":"105692155","dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":"Sprint 60","sprintsApproved":true,"status":"NF Emitida"},{"id":"1747834714326","contrato":"9389678/2023","mesAnoServico":"2024-01","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"1819","dataNF":"2024-03-25","dataAteste":"2024-03-26","docAceiteSprint":null,"dataLiquidacao":"2024-04-01","dataPagamento":"2024-04-26","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834713989","contrato":"9389678/2023","mesAnoServico":"2024-02","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"1820","dataNF":"2024-03-25","dataAteste":"2024-03-26","docAceiteSprint":null,"dataLiquidacao":"2024-04-01","dataPagamento":"2024-04-26","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834714053","contrato":"9389678/2023","mesAnoServico":"2024-03","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"2109","dataNF":"2024-04-10","dataAteste":"2024-04-11","docAceiteSprint":null,"dataLiquidacao":"2024-04-16","dataPagamento":"2024-05-28","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834714195","contrato":"9389678/2023","mesAnoServico":"2024-04","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"2610","dataNF":"2024-05-10","dataAteste":"2024-05-10","docAceiteSprint":null,"dataLiquidacao":"2024-05-15","dataPagamento":"2024-05-28","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834714174","contrato":"9389678/2023","mesAnoServico":"2024-05","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"3743","dataNF":"2024-06-28","dataAteste":"2024-07-09","docAceiteSprint":null,"dataLiquidacao":"2024-07-16","dataPagamento":"2024-07-23","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834714324","contrato":"9389678/2023","mesAnoServico":"2024-06","empenhoVinculado":"1747834627090","valorPreFat":10208.03,"numeroNF":"4356","dataNF":"2024-07-19","dataAteste":"2024-07-19","docAceiteSprint":null,"dataLiquidacao":"2024-07-19","dataPagamento":"2024-07-30","observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Paga"},{"id":"1747834713919","contrato":"9389678/2023","mesAnoServico":"2024-07","empenhoVinculado":"1747834627090","valorPreFat":8166.42,"numeroNF":"3099","dataNF":"2025-05-29","dataAteste":"2025-06-02","docAceiteSprint":null,"dataLiquidacao":"2025-06-06","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747834714451","contrato":"9389678/2023","mesAnoServico":"2024-07","empenhoVinculado":"1747834627090","valorPreFat":2107.54,"numeroNF":"3100","dataNF":"2025-05-29","dataAteste":"2025-06-02","docAceiteSprint":null,"dataLiquidacao":"2025-06-06","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747834714092","contrato":"9389678/2023","mesAnoServico":"2024-08","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":"3101","dataNF":"2025-05-29","dataAteste":"2025-06-02","docAceiteSprint":null,"dataLiquidacao":"2025-06-06","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747834714585","contrato":"9389678/2023","mesAnoServico":"2024-09","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":"3102","dataNF":"2025-05-29","dataAteste":"2025-06-02","docAceiteSprint":null,"dataLiquidacao":"2025-06-06","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747834714227","contrato":"9389678/2023","mesAnoServico":"2024-10","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":"3103","dataNF":"2025-05-29","dataAteste":"2025-06-02","docAceiteSprint":null,"dataLiquidacao":"2025-06-06","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747834713882","contrato":"9389678/2023","mesAnoServico":"2024-11","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":"3104","dataNF":"2025-05-29","dataAteste":"2025-06-02","docAceiteSprint":null,"dataLiquidacao":"2025-06-06","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1747834714368","contrato":"9389678/2023","mesAnoServico":"2024-12","empenhoVinculado":"1747834627090","valorPreFat":10537.7,"numeroNF":"3105","dataNF":"2025-05-29","dataAteste":"2025-06-02","docAceiteSprint":null,"dataLiquidacao":"2025-06-06","dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Liquidada"},{"id":"1750869105176","contrato":"9389678/2023","mesAnoServico":"2025-05","empenhoVinculado":"1747664885484","valorPreFat":10537.7,"numeroNF":null,"dataNF":null,"dataAteste":null,"docAceiteSprint":null,"dataLiquidacao":null,"dataPagamento":null,"observacoes":null,"sprintInfo":null,"sprintsApproved":false,"status":"Pré-faturado"}]
                     };
                     // A lógica de carregamento na função carregarDadosDoStorage irá priorizar window.embeddedData
                 </script></head>
-<body class="">
+<body class="manual-theme dark-mode">
 <div class="container">
 <div class="header-controls">
 <h1>VISA Digital Pagamentos</h1>
@@ -1006,51 +1109,55 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 <h2>📊 Dashboard</h2>
 <div class="dashboard">
-<div class="card dev">
+<div class="card dev" draggable="true">
 <h3>Desenvolvimento (<span id="anoExibidoDev">2025</span>)</h3>
 <div class="value" id="saldoDisponivelDev">R$&nbsp;551.785,00</div>
 <small>Saldo Disponível</small>
 <small>Comprometido: <span id="saldoComprometidoDev">R$&nbsp;648.461,00</span></small>
 <small>Liquidado: <span id="saldoLiquidadoDev">R$&nbsp;0,00</span></small>
+<small>Saldo do Empenho: <span id="saldoEmpenhoDev">R$&nbsp;1.200.246,00</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoDev">R$&nbsp;1.200.246,00</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo Dev" id="graficoDev" style="box-sizing: border-box; display: block; height: 80px; width: 408px;" width="408" height="80"></canvas>
+<canvas aria-label="Gráfico de Saldo Dev" id="graficoDev" style="box-sizing: border-box; display: block; height: 80px; width: 428px;" width="428" height="80"></canvas>
 </div>
 </div>
-<div class="card hosp">
+<div class="card hosp" draggable="true">
 <h3>Hospedagem (<span id="anoExibidoHosp">2025</span>)</h3>
 <div class="value" id="saldoDisponivelHosp">R$&nbsp;17.967,86</div>
 <small>Saldo Disponível</small>
 <small>Comprometido: <span id="saldoComprometidoHosp">R$&nbsp;52.688,50</span></small>
 <small>Liquidado: <span id="saldoLiquidadoHosp">R$&nbsp;42.150,80</span></small>
+<small>Saldo do Empenho: <span id="saldoEmpenhoHosp">R$&nbsp;28.505,56</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoHosp">R$&nbsp;70.656,36</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo Hospedagem" id="graficoHosp" style="box-sizing: border-box; display: block; height: 80px; width: 408px;" width="408" height="80"></canvas>
+<canvas aria-label="Gráfico de Saldo Hospedagem" id="graficoHosp" style="box-sizing: border-box; display: block; height: 80px; width: 428px;" width="428" height="80"></canvas>
 </div>
 </div>
-<div class="card rap">
+<div class="card rap" draggable="true">
 <h3>Restos a Pagar (Desenvolvimento)</h3>
 <div class="value" id="saldoDisponivelRapDev">R$&nbsp;152.808,00</div>
 <small>Saldo Disponível</small>
 <small>Comprometido: <span id="saldoComprometidoRapDev">R$&nbsp;2.066.792,00</span></small> <small>Liquidado: <span id="saldoLiquidadoRapDev">R$&nbsp;2.011.849,00</span></small>
+<small>Saldo do Empenho: <span id="saldoEmpenhoRapDev">R$&nbsp;207.751,00</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoRapDev">R$&nbsp;2.219.600,00</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo RAP Dev" id="graficoRapDev" style="box-sizing: border-box; display: block; height: 80px; width: 408px;" width="408" height="80"></canvas>
+<canvas aria-label="Gráfico de Saldo RAP Dev" id="graficoRapDev" style="box-sizing: border-box; display: block; height: 80px; width: 428px;" width="428" height="80"></canvas>
 </div>
 </div>
-<div class="card rap">
+<div class="card rap" draggable="true">
 <h3>Restos a Pagar (Hospedagem)</h3>
 <div class="value" id="saldoDisponivelRapHosp">R$&nbsp;2.245,57</div>
 <small>Saldo Disponível</small>
 <small>Comprometido: <span id="saldoComprometidoRapHosp">R$&nbsp;124.210,64</span></small> <small>Liquidado: <span id="saldoLiquidadoRapHosp">R$&nbsp;124.210,64</span></small>
+<small>Saldo do Empenho: <span id="saldoEmpenhoRapHosp">R$&nbsp;2.245,57</span></small>
 <small>Total Empenhado: <span id="totalEmpenhadoRapHosp">R$&nbsp;126.456,21</span></small>
 <div class="chart-container-small">
-<canvas aria-label="Gráfico de Saldo RAP Hospedagem" id="graficoRapHosp" style="box-sizing: border-box; display: block; height: 80px; width: 408px;" width="408" height="80"></canvas>
+<canvas aria-label="Gráfico de Saldo RAP Hospedagem" id="graficoRapHosp" style="box-sizing: border-box; display: block; height: 80px; width: 428px;" width="428" height="80"></canvas>
 </div>
 </div>
 </div>
 <h2>📑 Empenhos</h2>
-<div style="overflow-x: auto;"> <table class="modern-table" id="tabelaEmpenhos">
+<div style="overflow-x: auto;"> <div class="table-container"><table class="modern-table" id="tabelaEmpenhos">
 <thead>
 <tr>
 <th>Contrato</th>
@@ -1058,6 +1165,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <th>Ano</th>
 <th>Valor Empenhado (Total)</th>
 <th>Valor Liquidado</th>
+<th>Valor Comprometido</th>
+<th>Saldo do Empenho</th>
 <th>Saldo Disponível</th>
 <th>Status</th>
 <th>Ações</th>
@@ -1072,6 +1181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>2025</td>
                     <td>R$&nbsp;1.200.246,00</td>
                     <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;648.461,00</td><td class="">R$&nbsp;1.200.246,00</td>
                     <td class="">R$&nbsp;551.785,00</td>
                     <td><span class="status-badge status-ativo">Ativo</span></td>
                     <td>
@@ -1088,6 +1198,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>2025</td>
                     <td>R$&nbsp;70.656,36</td>
                     <td>R$&nbsp;42.150,80</td>
+                    <td>R$&nbsp;52.688,50</td><td class="">R$&nbsp;28.505,56</td>
                     <td class="">R$&nbsp;17.967,86</td>
                     <td><span class="status-badge status-ativo">Ativo</span></td>
                     <td>
@@ -1104,6 +1215,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>2024</td>
                     <td>R$&nbsp;2.219.600,00</td>
                     <td>R$&nbsp;2.011.849,00</td>
+                    <td>R$&nbsp;2.066.792,00</td><td class="">R$&nbsp;207.751,00</td>
                     <td class="">R$&nbsp;152.808,00</td>
                     <td><span class="status-badge status-ativo">Ativo</span></td>
                     <td>
@@ -1120,6 +1232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>2024</td>
                     <td>R$&nbsp;126.456,21</td>
                     <td>R$&nbsp;124.210,64</td>
+                    <td>R$&nbsp;124.210,64</td><td class="">R$&nbsp;2.245,57</td>
                     <td class="">R$&nbsp;2.245,57</td>
                     <td><span class="status-badge status-ativo">Ativo</span></td>
                     <td>
@@ -1128,10 +1241,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-movement" onclick="addMovimentoEmpenho('1747834627090', 'Anulação Parcial')" title="Adicionar Anulação Parcial">➖A</button>
                         <button class="btn-delete" onclick="excluirEmpenho('1747834627090')" title="Excluir Empenho">🗑️</button>
                      </td> </tr></tbody>
-</table>
+</table></div>
 </div>
 <h2>📈 Registro de Faturamento</h2>
-<div style="overflow-x: auto;"> <table class="modern-table" id="tabelaFaturamento">
+<div style="overflow-x: auto;"> <div class="table-container"><table class="modern-table" id="tabelaFaturamento">
 <thead>
 <tr>
 <th>ID</th>
@@ -2120,7 +2233,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="btn-delete" onclick="excluirFaturamento('1747834714326')" title="Excluir Faturamento">🗑️</button>
                         <button class="btn-action btn-delete" onclick="cancelarFaturamento('1747834714326')" title="Cancelar Faturamento">❌</button>
                      </td> </tr></tbody>
-</table>
+</table></div>
 </div>
 
 
@@ -2512,7 +2625,8 @@ document.addEventListener('DOMContentLoaded', () => {
             empsFiltrados.forEach(e => {
                 // Saldo Disponível agora é calculado com base no COMPROMETIDO
                 const saldo = calcularSaldoDisponivelEmpenho(e);
-                const liq = calcularTotalLiquidadoEmpenho(e.id); // Liquidado ainda é exibido
+                const liq = calcularTotalLiquidadoEmpenho(e.id);
+                const comprom = calcularTotalComprometidoEmpenho(e.id); // Liquidado ainda é exibido
                 const tr = document.createElement('tr');
 
                 // Adiciona classes de status para estilização
@@ -2538,6 +2652,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>${e.anoEmpenho || 'N/A'}</td>
                     <td>${formatarMoeda(e.valorOriginalEmpenho)}</td>
                     <td>${formatarMoeda(liq)}</td>
+                    <td>${formatarMoeda(comprom)}</td><td class=\"${(e.valorOriginalEmpenho - liq) < 0 ? 'saldo-negativo' : ''}\">${formatarMoeda(e.valorOriginalEmpenho - liq)}</td>
                     <td class="${saldo < 0 ? 'saldo-negativo' : ''}">${formatarMoeda(saldo)}</td>
                     <td><span class="status-badge status-${statusClass}">${e.statusEmpenho || 'Ativo'}</span></td>
                     ${!isReadOnly ? `<td>${acoesHtml}</td>` : ''} `;
@@ -2747,11 +2862,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const sDisp = data.empenhado - data.comprometido;
                 const sComp = data.comprometido; // Valor comprometido
                 const sLiq = data.liquidado; // Valor liquidado
+const sEmp = data.empenhado - sLiq; // Saldo do Empenho (Empenhado - Liquidado)
 
                 const elTE = document.getElementById(`totalEmpenhado${prefix}`);
                 const elSL = document.getElementById(`saldoLiquidado${prefix}`);
                 const elSC = document.getElementById(`saldoComprometido${prefix}`);
                 const elSD = document.getElementById(`saldoDisponivel${prefix}`);
+const elSE = document.getElementById(`saldoEmpenho${prefix}`);
 
                 if (elTE) elTE.textContent = formatarMoeda(data.empenhado);
                 if (elSL) elSL.textContent = formatarMoeda(sLiq); // Exibe o valor liquidado
@@ -2760,7 +2877,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     elSD.textContent = formatarMoeda(sDisp); // Exibe o novo saldo disponível (Empenhado - Comprometido)
                     // Adiciona/remove classe para destacar saldo negativo
                     elSD.classList.toggle('saldo-negativo', sDisp < 0);
-                }
+    }
+    if (elSE) {
+        elSE.textContent = formatarMoeda(sEmp);
+        elSE.classList.toggle('saldo-negativo', sEmp < 0);
+    }
 
                 // Renderiza o gráfico no card (comparando Saldo Disponível e Comprometido)
                 renderizarGraficoCard(`grafico${prefix}`, sDisp, sComp);
@@ -4613,5 +4734,155 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+<!-- Toggle theme button -->
 
+<script>
+(function() {
+
+  // Theme toggle logic
+  const body = document.body;
+  const toggleBtn = document.getElementById('themeToggle');
+  // Apply saved theme
+  const saved = localStorage.getItem('theme');
+  if(saved === 'dark') body.classList.add('dark-mode');
+  // Mark manual override
+  if(saved) body.classList.add('manual-theme');
+
+  toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+      body.classList.add('manual-theme');
+  });
+
+  // Drag-and-drop cards
+  let dragSrc = null;
+  function initDraggableCards() {
+      document.querySelectorAll('.card').forEach(card => {
+          card.addEventListener('dragstart', handleDragStart);
+          card.addEventListener('dragenter', handleDragEnter);
+          card.addEventListener('dragover', handleDragOver);
+          card.addEventListener('dragleave', handleDragLeave);
+          card.addEventListener('drop', handleDrop);
+          card.addEventListener('dragend', handleDragEnd);
+      });
+  }
+
+  function handleDragStart(e) {
+      dragSrc = this;
+      e.dataTransfer.effectAllowed = 'move';
+      // For Firefox compatibility
+      e.dataTransfer.setData('text/plain', '');
+      this.classList.add('dragging');
+  }
+  function handleDragOver(e) {
+      e.preventDefault(); // Necessary to allow drop
+      return false;
+  }
+  function handleDragEnter(e) {
+      if(this !== dragSrc) this.classList.add('over');
+  }
+  function handleDragLeave(e) {
+      this.classList.remove('over');
+  }
+  function handleDrop(e) {
+      e.stopPropagation();
+      if(dragSrc !== this) {
+          const parent = this.parentNode;
+          parent.insertBefore(dragSrc, this);
+      }
+      this.classList.remove('over');
+      return false;
+  }
+  function handleDragEnd(e) {
+      this.classList.remove('dragging');
+      document.querySelectorAll('.card.over').forEach(card => card.classList.remove('over'));
+  }
+
+  document.addEventListener('DOMContentLoaded', initDraggableCards);
+})();
+</script>
+
+
+<script id="overrideGerarDashboard">
+/**
+ * gera o dashboard em nova aba sem botões de ação
+ *   • mantém apenas botão PDF
+ *   • garante overlay
+ *   • PDF funciona pois reaproveita scripts da própria página
+ */
+function gerarDashboardInterativo () {
+    try {
+        const dashWin = window.open(window.location.href + '#readonly', '_blank');
+        if (!dashWin) {
+            alert('Seu navegador bloqueou pop‑ups. Libere pop‑ups para gerar o dashboard.');
+            return;
+        }
+        // Após carregar, remove botões e força readonly
+        const tidy = () => {
+            try {
+                const ddoc = dashWin.document;
+                // Siga apenas se DOM pronto
+                if (ddoc.readyState !== 'complete') return;
+                // Evita rodar duas vezes
+                if (ddoc.__tidied) return;
+                ddoc.__tidied = true;
+
+                const selectors = [
+                    '.btn-edit',
+                    '.btn-delete',
+                    '.btn-add',
+                    '.btn-close',
+                    '.btn-danger',
+                    '.btn-warning',
+                    '.btn-secondary',
+                    '.actions-col',
+                    '.fa-trash',
+                    '.fa-trash-alt',
+                    '.fa-times',
+                    '.fa-xmark',
+                    '.fa-pencil',
+                    '.fa-pencil-alt',
+                    '[data-bs-dismiss="modal"]'
+                ].join(',');
+                ddoc.querySelectorAll(selectors).forEach(el => el.remove());
+
+                // remove botões extras em filters-actions
+                ddoc.querySelectorAll('#filters-actions .btn').forEach(btn=>{
+                    const id = (btn.id||'').toLowerCase();
+                    const txt = btn.textContent.toLowerCase();
+                    if (!(id.includes('pdf') || txt.includes('pdf'))) {
+                        btn.remove();
+                    }
+                });
+
+                // Garante overlay
+                if (!ddoc.getElementById('loadingOverlay')) {
+                    const overlay = ddoc.createElement('div');
+                    overlay.id = 'loadingOverlay';
+                    overlay.className = 'loading-overlay';
+                    overlay.innerHTML = '<div class="spinner"></div><div>Gerando PDF…</div>';
+                    ddoc.body.appendChild(overlay);
+                }
+
+                // Força readonly
+                if (ddoc.defaultView) {
+                    ddoc.defaultView.isReadOnly = true;
+                }
+            } catch(e){
+                console.error('Erro no pós-processo do dashboard:', e);
+            }
+        };
+        // roda tidy várias vezes até sucesso
+        const tidier = setInterval(()=>{
+            if (dashWin.closed) { clearInterval(tidier); return; }
+            tidy();
+            // se já finalizou, parar
+            if (dashWin.document.__tidied) clearInterval(tidier);
+        }, 300);
+    } catch (err) {
+        console.error('Falha ao gerar dashboard interativo:', err);
+        alert('Erro ao gerar dashboard. Veja detalhes no console.');
+    }
+}
+</script>
 </body></html>
